@@ -1,0 +1,33 @@
+---
+
+category:    spatial
+schema_name: gisdata
+tables:
+  - bikeped_facilities
+  - chc_pts
+  - ej_poly
+  - farmers_markets
+  - healthy_restaurants_markets
+  - hospital_pts
+  - hubway_stations
+  - library_pts
+  - ma_census2000_tracts
+  - ma_census2010_tracts
+  - ma_municipal
+  - mapc_centroids
+  - mapc_outline_nocoast
+  - mapc_towns_poly
+  - mass_in_motion_pts
+  - matowns
+  - mbta_bus_routes
+  - mbta_bus_stops
+  - mbta_stations
+  - mbta_subway_lines
+  - openspace_poly
+  - rta_bus_lines
+  - school_districts
+  - school_pts
+  - sidewalks
+  - train_routes
+  - train_stations
+  - zip_codes
