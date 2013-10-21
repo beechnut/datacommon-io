@@ -3,31 +3,311 @@
 category:    spatial
 schema_name: gisdata
 tables:
-  - bikeped_facilities
-  - chc_pts
-  - ej_poly
-  - farmers_markets
-  - healthy_restaurants_markets
-  - hospital_pts
-  - hubway_stations
-  - library_pts
-  - ma_census2000_tracts
-  - ma_census2010_tracts
-  - ma_municipal
-  - mapc_centroids
-  - mapc_outline_nocoast
-  - mapc_towns_poly
-  - mass_in_motion_pts
-  - matowns
-  - mbta_bus_routes
-  - mbta_bus_stops
-  - mbta_stations
-  - mbta_subway_lines
-  - openspace_poly
-  - rta_bus_lines
-  - school_districts
-  - school_pts
-  - sidewalks
-  - train_routes
-  - train_stations
-  - zip_codes
+  - 
+    name:          bicycle_and_pedestrian_facilities
+    title:         Bicycle and Pedestrian Facilities
+    table_name:    bikeped_facilities     
+    key:           ObjectID
+    summary_level: 
+    geometry_type: Point
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          community_health_centers
+    title:         Community Health Centers
+    table_name:    chc_pts     
+    key:           chc_id
+    summary_level: 
+    geometry_type: Point
+    extent:        
+    source:        
+    last_updated:  
+    attributes:    
+  - 
+    name:          environmental_justice_populations
+    title:         Environmental Justice Populations
+    table_name:    ej_poly
+    key:           BG_00_ID
+    summary_level: census_blockgroup
+    geometry_type: polygon
+    extent:
+    source:
+    last_updated:
+    attributes:  
+  - 
+    name:          farmers_markets
+    title:         Farmers Markets
+    table_name:    farmers_markets
+    key:             
+    summary_level: 
+    geometry_type: Point
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          healthy_restaurants_and_markets
+    title:         
+    table_name:    healthy_restaurants_markets
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  -    
+    name:          hospitals
+    title:         Hospitals
+    table_name:    hospital_pts     
+    key:           hospital_id
+    summary_level: 
+    geometry_type: Point
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          hubway_stations
+    title:         
+    table_name:    hubway_stations
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  -    
+    name:          libraries
+    title:         Libraries
+    table_name:    library_pts     
+    key:           LibraryID
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  -    
+    name:          ma_census_tracts_2000
+    title:         Census 2000 Tracts
+    table_name:    ma_census2000_tracts     
+    key:           CT_ID
+    summary_level: census_tract
+    geometry_type: Polygon
+    extent:        MA
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          ma_census_tracts
+    title:         Census 2010 Tracts
+    table_name:    ma_census2010_tracts
+    key:           ct10_id     
+    summary_level: census_tract
+    geometry_type: Polygon
+    extent:        MA
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          ma_municipalities
+    title:         Massachusetts Municipalities
+    table_name:    ma_municipal
+    key:           MUNI_ID
+    summary_level: municipality
+    geometry_type: Polygon
+    extent:        MA
+    source:
+    last_updated:
+    attributes:  
+  - 
+    name:          
+    title:         
+    table_name:    mapc_centroids
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          
+    title:         
+    table_name:    mapc_outline_nocoast
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          mapc_municipalities
+    title:         MAPC Municipalities
+    table_name:    mapc_towns_poly
+    key:           MUNI_ID
+    summary_level: municipality
+    geometry_type: Polygon
+    extent:        MA
+    source:
+    last_updated:
+    attributes:
+  - 
+    name:          
+    title:            
+    table_name:    mass_in_motion_pts
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          
+    title:         
+    table_name:    matowns
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          mbta_bus_routes
+    title:         
+    table_name:    mbta_bus_routes
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          mbta_bus_stops
+    title:         
+    table_name:    mbta_bus_stops
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          
+    title:         
+    table_name:    mbta_stations
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          mbta_subway_lines
+    title:         MBTA Subway Lines
+    table_name:    mbta_subway_lines
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          open_spaces
+    title:         Open Space
+    table_name:    openspace_poly
+    key:           OS_ID
+    summary_level: 
+    geometry_type: Polygon
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          rta_bus_lines
+    title:         
+    table_name:    rta_bus_lines
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          school_districts
+    title:         School Districts
+    table_name:    school_districts
+    key:           SchoolDistrictID
+    summary_level: 
+    geometry_type: Polygon
+    extent:        MA
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          schools
+    title:         Schools
+    table_name:    school_pts
+    key:           SchoolID
+    summary_level: 
+    geometry_type: Point
+    extent:        MA
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          sidewalks
+    title:         
+    table_name:    sidewalks
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          
+    title:         
+    table_name:    train_routes
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          
+    title:         
+    table_name:    train_stations
+    key:           
+    summary_level: 
+    geometry_type: 
+    extent:        
+    source:        
+    last_updated:
+    attributes:  
+  - 
+    name:          zip_codes
+    title:         Zip Codes
+    table_name:    zip_codes
+    key:           
+    summary_level: 
+    geometry_type: MultiPolygon
+    extent:        MA
+    source:        
+    last_updated:  
+    attributes:  

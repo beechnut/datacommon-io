@@ -4,6 +4,7 @@
  */
 
 var express = require('express');
+var yaml    = require('js-yaml');
 
 var routes     = require('./routes');
 var lists      = require('./routes/lists');

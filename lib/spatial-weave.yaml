@@ -1,0 +1,398 @@
+- 
+  - name: "Geometry Collections"
+  - title: "Spatial Geography for Maps"
+  - category: spatial
+  - schema_name: gisdata
+  - tables: 
+    - 
+      - name:     "MAPC Municipalities"
+      - title:    "MAPC Municipalities"
+      - key:      "MUNI_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: mapc_towns_poly
+    - 
+      - name:     "Massachusetts Municipalities"
+      - title:    "Massachusetts Municipalities"
+      - key:      "MUNI_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "1Km Grid"
+      - title:    "1Km Grid"
+      - key:      "Grid_1Km_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Arts and Culture Points"
+      - title:    "Arts and Culture Points"
+      - key:      "Arts and Culture Points"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Bike and Pedestrian Facilities"
+      - title:    "Bike and Pedestrian Facilities"
+      - key:      "ObjectID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Circle of Promise Schools"
+      - title:    "Boston Circle of Promise Schools"
+      - key:      "SchoolID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Daycares"
+      - title:    "Boston Daycares"
+      - key:      "ObjectID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Neighborhoods"
+      - title:    "Boston Neighborhoods"
+      - key:      "ObjectID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Non-Profit Educational Assets (Points)"
+      - title:    "Boston Non-Profit Educational Assets (Points)"
+      - key:      "ObjectID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Outline"
+      - title:    "Boston Outline"
+      - key:      "MUNI_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Parcels (Subset)"
+      - title:    "Boston Parcels (Subset)"
+      - key:      "BostonParcelID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Planning Districts"
+      - title:    "Boston Planning Districts"
+      - key:      "Boston_Planning_Districts"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Police Districts"
+      - title:    "Boston Police Districts"
+      - key:      "boston_police_districts_id"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Precincts"
+      - title:    "Boston Precincts"
+      - key:      "Boston_Wards_Precincts"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Schools"
+      - title:    "Boston Schools"
+      - key:      "SchoolID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Tech Centers"
+      - title:    "Boston Tech Centers"
+      - key:      "Boston_TechCenters"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Boston Turnaround Schools"
+      - title:    "Boston Turnaround Schools"
+      - key:      "SchoolID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Census 2000 Block Groups"
+      - title:    "Census 2000 Block Groups"
+      - key:      "BG_00_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Census 2000 Tracts"
+      - title:    "Census 2000 Tracts"
+      - key:      "CT_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Census 2010 Block Groups"
+      - title:    "Census 2010 Block Groups"
+      - key:      "BG_10_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Census 2010 Tracts"
+      - title:    "Census 2010 Tracts"
+      - key:      "ct10_id"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Child Care Providers with Less than High School"
+      - title:    "Child Care Providers with Less than High School"
+      - key:      "ObjectID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Colleges and Universities"
+      - title:    "Colleges and Universities"
+      - key:      "College_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Community Health Centers"
+      - title:    "Community Health Centers"
+      - key:      "chc_id"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Commuter Rail"
+      - title:    "Commuter Rail"
+      - key:      "Commuter Rail"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Commuter Rail Stations"
+      - title:    "Commuter Rail Stations"
+      - key:      "Commuter Rail Stations"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Environmental Justice Populations (Block Groups)"
+      - title:    "Environmental Justice Populations (Block Groups)"
+      - key:      "BG_00_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Fairmount Commuter Line"
+      - title:    "Fairmount Commuter Line"
+      - key:      "ObjectID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Green House Gas Emissions by Facility, 2010 (pts)"
+      - title:    "Green House Gas Emissions by Facility, 2010 (pts)"
+      - key:      "frs_id"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Hospitals"
+      - title:    "Hospitals"
+      - key:      "hospital_id"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Intel Clubhouses"
+      - title:    "Intel Clubhouses"
+      - key:      "Intel_Clubhouses"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "LEED Certified Buildings (Points)"
+      - title:    "LEED Certified Buildings (Points)"
+      - key:      "LEED_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Libraries"
+      - title:    "Libraries"
+      - key:      "LibraryID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "MA Counties"
+      - title:    "MA Counties"
+      - key:      "FIPS_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "MA House Legislative Districts (2012)"
+      - title:    "MA House Legislative Districts (2012)"
+      - key:      "MA_HOUSE12_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "MA Senate Legislative Districts (2012)"
+      - title:    "MA Senate Legislative Districts (2012)"
+      - key:      "MA_SENATE12_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Major Roads (MassDOT)"
+      - title:    "Major Roads (MassDOT)"
+      - key:      "ObjectID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Major Routes (MassDOT)"
+      - title:    "Major Routes (MassDOT)"
+      - key:      "ObjectID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "MAPC Municipalities"
+      - title:    "MAPC Municipalities"
+      - key:      "MUNI_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Mass in Motion Communities"
+      - title:    "Mass in Motion Communities"
+      - key:      "MUNI_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Massachusetts Municipalities"
+      - title:    "Massachusetts Municipalities"
+      - key:      "MUNI_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "MBTA Subway Lines"
+      - title:    "MBTA Subway Lines"
+      - key:      "MBTA Subway Lines"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "MBTA Subway Stops"
+      - title:    "MBTA Subway Stops"
+      - key:      "MBTA Subway Stops"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "MetroFuture Region"
+      - title:    "MetroFuture Region"
+      - key:      "MUNI_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Open Space"
+      - title:    "Open Space"
+      - key:      "OS_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Police Stations"
+      - title:    "Police Stations"
+      - key:      "PoliceStations_id"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Protected Open Space"
+      - title:    "Protected Open Space"
+      - key:      "OS_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "School Districts"
+      - title:    "School Districts"
+      - key:      "SchoolDistrictID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "School Districts by Town"
+      - title:    "School Districts by Town"
+      - key:      "MUNI_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Schools"
+      - title:    "Schools"
+      - key:      "SchoolID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Success Boston Student Cohorts (2010)"
+      - title:    "Success Boston Student Cohorts (2010)"
+      - key:      "ObjectID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Transit Oriented Development Stations"
+      - title:    "Transit Oriented Development Stations"
+      - key:      "TOD_Station"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Traffic Analysis Zones (TAZ) "
+      - title:    "Traffic Analysis Zones (TAZ) "
+      - key:      "TAZ_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "US Congressional Districts"
+      - title:    "US Congressional Districts"
+      - key:      "US_CONGRESS_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "US States"
+      - title:    "US States"
+      - key:      "Arts and Culture Points"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 
+    - 
+      - name:     "Water Bodies (100k Hydro)"
+      - title:    "Water Bodies (100k Hydro)"
+      - key:      "PALIS_ID"
+      - dataType: "geometry"
+      - extent:
+      - table_name: 

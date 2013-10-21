@@ -1,6 +1,7 @@
 
 /*
- * GET lists of datasets.
+ * Get verbose information on categories of datasets,
+ * including lists of 
  */
 
 exports.list = function(request, response){
@@ -9,7 +10,8 @@ exports.list = function(request, response){
   categories = ['datasets','boundaries','spatial']; // TODO refactor/DRY
 
   if (categories.indexOf(category) > -1) {
-    response.send("respond with a list of available datasets for the " + category + " category");
+    response.send("respond with a list of available datasets for the "
+                   + category + " category");
   } else {
     response.send("category must be one of: " + categories.join(', '));
   }
@@ -23,8 +25,9 @@ exports.verbose = function(request, response){
   categories = ['datasets','boundaries','spatial'];
 
   if (categories.indexOf(category) > -1) {
-    response.send("respond with a list of available datasets in the " + category + 
-      " category, as well as verbose metadata about " + category + " datasets");
+    response.send("respond with a list of available datasets in the "
+      + category + " category, as well as verbose metadata about "
+      + category + " datasets");
   } else {
     response.send("category must be one of: " + categories.join(', '));
   }
