@@ -4,7 +4,7 @@
 */
 
 var pg      = require('pg');
-var tables = require('./shared.js').spatial().tables;
+var tables = require('./shared.js').spatial()[0].tables;
 var shared  = require('./shared.js');
 
 
