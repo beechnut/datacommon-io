@@ -7,7 +7,7 @@
       name:          bicycle_and_pedestrian_facilities
       title:         Bicycle and Pedestrian Facilities
       table_name:    bikeped_facilities     
-      key:           ObjectID
+      key:           gid
       summary_level: 
       geometry_type: Point
       extent:        
@@ -30,7 +30,7 @@
       name:          environmental_justice_populations
       title:         Environmental Justice Populations
       table_name:    ej_poly
-      key:           BG_00_ID
+      key:           gid
       summary_level: census_blockgroup
       geometry_type: polygon
       extent:        
@@ -41,7 +41,7 @@
       name:          farmers_markets
       title:         Farmers Markets
       table_name:    farmers_markets
-      key:           
+      key:           market_id
       summary_level: 
       geometry_type: Point
       extent:        
@@ -63,7 +63,7 @@
       name:          hospitals
       title:         Hospitals
       table_name:    hospital_pts     
-      key:           hospital_id
+      key:           hosp_id
       summary_level: 
       geometry_type: Point
       extent:        
@@ -250,7 +250,7 @@
       name:          school_districts
       title:         School Districts
       table_name:    school_districts
-      key:           SchoolDistrictID
+      key:           districtid
       summary_level: 
       geometry_type: Polygon
       extent:        MA
@@ -261,7 +261,7 @@
       name:          schools
       title:         Schools
       table_name:    school_pts
-      key:           SchoolID
+      key:           schid
       summary_level: 
       geometry_type: Point
       extent:        MA
