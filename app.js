@@ -8,7 +8,8 @@ var yaml    = require('js-yaml');
 
 var routes     = require('./routes');
 var lists      = require('./routes/lists');
-var boundaries = require('./routes/boundaries');
+var spatial    = require('./routes/spatial');
+// var boundaries = require('./routes/boundaries');
 
 var http    = require('http');
 var path    = require('path');
@@ -37,9 +38,13 @@ app.get('/', routes.index);
 app.get('/:category/list',         lists.list);
 app.get('/:category/list/verbose', lists.verbose);
 
-app.get('/boundaries/:dataset',     boundaries.dataset);
-app.get('/boundaries/:dataset/meta', boundaries.meta);
-app.get('/boundaries/:dataset/intersect/:posted_geojson', boundaries.intersect);
+app.get('/spatial/:dataset',      spatial.dataset);
+app.get('/spatial/:dataset/meta', spatial.meta);
+app.get('/spatial/:dataset/intersect/:posted_geojson', spatial.intersect);
+
+// app.get('/boundaries/:dataset',      boundaries.dataset);
+// app.get('/boundaries/:dataset/meta', boundaries.meta);
+// app.get('/boundaries/:dataset/intersect/:posted_geojson', boundaries.intersect);
 
 
 http.createServer(app).listen(app.get('port'), function(){

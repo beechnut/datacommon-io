@@ -3,8 +3,18 @@
   Boundaries
 */
 
-var pg = require('pg');
-var spatial = require('../lib/spatial.yaml');
+var pg      = require('pg');
+var spatial = require('./shared.js').spatial();
+
+
+var findTableObjectWithName = function(dataset_name) {
+  tables = spatial.tables;
+  for(t=0; t<tables.length; t++){
+    if(tables[t].name === dataset_name) {
+      return(tables[t]);
+    }
+  }
+}
 
 
 var makeGeoJSONQueryString = function(schema_name, table_name, callback) { 
@@ -23,20 +33,9 @@ var queryForGeoJSON = function(querystring, callback){
 
     client.query(querystring, function (err, result) {
       if(err) return console.error('Error with query.', err);
-      // console.log(result);
       if(callback) { callback(result); }
     });
   });
-}
-
-
-var findTableObjectWithName = function(dataset_name) {
-  tables = spatial.tables;
-  for(t=0; t<tables.length; t++){
-    if(tables[t].name === dataset_name) {
-      return(tables[t]);
-    }
-  }
 }
 
 
