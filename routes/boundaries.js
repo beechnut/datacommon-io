@@ -1,17 +1,18 @@
 /*
 
   Boundaries
-
 */
 
 var pg = require('pg');
 var spatial = require('../lib/spatial.yaml');
+
 
 var makeGeoJSONQueryString = function(schema_name, table_name, callback) { 
   query = 'SELECT ST_AsGeoJSON(the_geom) from ';
   query = query + schema_name + '.' + table_name;
   callback();
 }
+
 
 var queryForGeoJSON = function(querystring, callback){
   var conn   = process.env.DB_URL || 'postgres://localhost/gisdata';
@@ -22,12 +23,12 @@ var queryForGeoJSON = function(querystring, callback){
 
     client.query(querystring, function (err, result) {
       if(err) return console.error('Error with query.', err);
-      console.log(result);
-      return result
+      // console.log(result);
+      if(callback) { callback(result); }
     });
   });
-  if(callback) { callback(); }
 }
+
 
 var findTableObjectWithName = function(dataset_name) {
   tables = spatial.tables;
@@ -39,20 +40,21 @@ var findTableObjectWithName = function(dataset_name) {
 }
 
 
-exports.dataset = function(request, response){
-  dataset = request.params.dataset.split(',');
-  dataset = dataset.join(', ');
-  
-  table_name = findTableObjectWithName(dataset).table_name;
 
-  var response_obj;
+
+exports.dataset = function(request, response){
+  var dataset = request.params.dataset.split(',').join(', ');
+  var response_obj
+    , table_name;
+  
+  table_object = findTableObjectWithName(dataset);
+  if (table_object) table_name = table_object.table_name;
 
   makeGeoJSONQueryString('gisdata', table_name, function (){
-    response_obj = queryForGeoJSON(query);
+    queryForGeoJSON(query, function (result) {
+      response.send(result);
+    });
   }); 
-  
-  console.log('response:' + response_obj);
-  response.send(response_obj);
 }
 
 
