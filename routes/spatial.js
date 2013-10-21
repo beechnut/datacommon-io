@@ -1,6 +1,9 @@
 /*
 
-  Boundaries
+  Spatial
+
+  postGISQueryToFeatureCollection from https://gist.github.com/samgiles/2299524
+
 */
 
 var pg     = require('pg');

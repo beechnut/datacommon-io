@@ -14,12 +14,10 @@ You do not need to use JSONP to retrieve the data. The access headers are set to
 The following parts of this document have yet to be implemented. They will be deleted as they are completed.
 
 + Top level
-+ Available datasets
 + Boundaries
   + Get multiple datasets
   + Get attributes from verbose list
-  + Intersect
-    + Weight
+  + Weighted Intersect
 
 
 ## API Documentation
