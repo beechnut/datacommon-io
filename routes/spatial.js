@@ -3,10 +3,11 @@
   Boundaries
 */
 
-var pg      = require('pg');
+var pg     = require('pg');
 var tables = require('./shared.js').spatial()[0].tables;
-var shared  = require('./shared.js');
-
+var shared = require('./shared.js');
+var sample_geojson = require('./shared.js').sample_geojson();
+var _ = require('underscore');
 
 var findTableMeta = function(dataset_name) {
   for(t=0; t<tables.length; t++){
@@ -20,8 +21,16 @@ var findTableMeta = function(dataset_name) {
 var makeGeoJSONQueryString = function(schema_name, table, callback) { 
   query = 'SELECT ' + table.key + ' AS key, ST_AsGeoJSON(the_geom) AS geojson FROM ';
   query = query + schema_name + '.' + table.table_name;
-  if(callback) { callback(query); }
+  if(callback) callback(query);
 }
+
+var makeIntersectQueryString = function(schema_name, table, posted_geojson, callback) { 
+  query = 'SELECT ' + table.key + ' AS key, ST_AsGeoJSON(ST_Intersection(ST_SetSRID('
+        + 'ST_GeomFromGeoJSON(\'' + posted_geojson + '\'), 4326),'
+        + 'ST_Transform(the_geom, 4326))) AS geojson FROM ' + schema_name + '.' + table.table_name;
+  if(callback) callback(query);
+}
+
 
 
 function postGISQueryToFeatureCollection(queryResult, callback) {
@@ -45,8 +54,9 @@ function postGISQueryToFeatureCollection(queryResult, callback) {
       }
     }
     // Push the feature into the features array in the geojson object.
-    geojson.features.push(feature);
+    if (!feature.geometry.geometries) geojson.features.push(feature);
   }
+  console.log(geojson.features.length);
   // return the FeatureCollection geojson object.
   if (callback) callback(geojson);
 }
@@ -56,10 +66,12 @@ function postGISQueryToFeatureCollection(queryResult, callback) {
 
 exports.dataset = function(request, response){
   var dataset = request.params.dataset.split(',').join(', ');
-  var response_obj
-    , table_name;
-  
-  table = findTableMeta(dataset);
+  var table = findTableMeta(dataset);
+
+  if(!table) response.send("There is no dataset by that name."
+                            + "Try <a href=\"/spatial/list\">"
+                            + "datacommon.io/datasets/list</a> to see"
+                            + "all available datasets.");
 
   makeGeoJSONQueryString('gisdata', table, function (query){
     shared.query_database(query, function (result) {
@@ -82,10 +94,20 @@ exports.intersect = function(request, response){
   dataset = request.params.dataset;
   posted_geojson = request.params.posted_geojson;
 
-  response_obj = {
-    dataset: dataset,
-    content: 'GeoJSON of intersection between layers',
-    layers:  [dataset, posted_geojson]
-  }
-  response.send(response_obj);
+  if (_.isEmpty(JSON.parse(posted_geojson))) posted_geojson = sample_geojson;
+
+  table = findTableMeta(dataset);
+
+  if(!table) response.send("There is no dataset by that name."
+                            + "Try <a href=\"/spatial/list\">"
+                            + "datacommon.io/datasets/list</a> to see"
+                            + "all available datasets.");
+  
+  makeIntersectQueryString('gisdata', table, posted_geojson, function (query){
+    shared.query_database(query, function (result) {
+      postGISQueryToFeatureCollection(result.rows, function (geojson){
+        response.send(geojson);
+      });
+    });
+  }); 
 }

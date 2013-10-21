@@ -14,7 +14,9 @@
       source:        
       last_updated:
       attributes:
-        - field_name: alias    
+        - 
+          field_name: fieldnm
+          alias:      Humans can read this field name
     - 
       name:          community_health_centers
       title:         Community Health Centers
