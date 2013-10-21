@@ -4,12 +4,11 @@
 */
 
 var pg      = require('pg');
-var spatial = require('./shared.js').spatial();
+var tables = require('./shared.js').spatial().tables;
 var shared  = require('./shared.js');
 
 
 var findTableMeta = function(dataset_name) {
-  tables = spatial.tables;
   for(t=0; t<tables.length; t++){
     if(tables[t].name === dataset_name) {
       return(tables[t]);
