@@ -16,10 +16,8 @@ The following parts of this document have yet to be implemented. They will be de
 + Top level
 + Available datasets
 + Boundaries
-  + Get datasets
   + Get multiple datasets
   + Get attributes from verbose list
-  + Get attributes from dataset meta
   + Intersect
     + Weight
 

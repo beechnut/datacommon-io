@@ -13,7 +13,8 @@ tables:
     extent:        
     source:        
     last_updated:
-    attributes:  
+    attributes:
+      - field_name: alias    
   - 
     name:          community_health_centers
     title:         Community Health Centers
@@ -32,21 +33,21 @@ tables:
     key:           BG_00_ID
     summary_level: census_blockgroup
     geometry_type: polygon
-    extent:
-    source:
-    last_updated:
-    attributes:  
+    extent:        
+    source:        
+    last_updated:  
+    attributes:    
   - 
     name:          farmers_markets
     title:         Farmers Markets
     table_name:    farmers_markets
-    key:             
+    key:           
     summary_level: 
     geometry_type: Point
     extent:        
     source:        
-    last_updated:
-    attributes:  
+    last_updated:  
+    attributes:    
   - 
     name:          healthy_restaurants_and_markets
     title:         
@@ -71,7 +72,7 @@ tables:
     attributes:  
   - 
     name:          hubway_stations
-    title:         
+    title:         Hubway Stations
     table_name:    hubway_stations
     key:           
     summary_level: 

@@ -5,9 +5,10 @@
 
 var pg      = require('pg');
 var spatial = require('./shared.js').spatial();
+var shared  = require('./shared.js');
 
 
-var findTableObjectWithName = function(dataset_name) {
+var findTableMeta = function(dataset_name) {
   tables = spatial.tables;
   for(t=0; t<tables.length; t++){
     if(tables[t].name === dataset_name) {
@@ -20,22 +21,7 @@ var findTableObjectWithName = function(dataset_name) {
 var makeGeoJSONQueryString = function(schema_name, table_name, callback) { 
   query = 'SELECT ST_AsGeoJSON(the_geom) from ';
   query = query + schema_name + '.' + table_name;
-  callback();
-}
-
-
-var queryForGeoJSON = function(querystring, callback){
-  var conn   = process.env.DB_URL || 'postgres://localhost/gisdata';
-  var client = new pg.Client(conn);
-
-  client.connect(function (err){
-    if(err) return console.error('Could not connect to postgres.', err);
-
-    client.query(querystring, function (err, result) {
-      if(err) return console.error('Error with query.', err);
-      if(callback) { callback(result); }
-    });
-  });
+  if(callback) { callback(query); }
 }
 
 
@@ -46,11 +32,11 @@ exports.dataset = function(request, response){
   var response_obj
     , table_name;
   
-  table_object = findTableObjectWithName(dataset);
-  if (table_object) table_name = table_object.table_name;
+  table_meta = findTableMeta(dataset);
+  if (table_meta) table_name = table_meta.table_name;
 
-  makeGeoJSONQueryString('gisdata', table_name, function (){
-    queryForGeoJSON(query, function (result) {
+  makeGeoJSONQueryString('gisdata', table_name, function (query){
+    shared.query_database(query, function (result) {
       response.send(result);
     });
   }); 
@@ -60,7 +46,7 @@ exports.dataset = function(request, response){
 exports.meta = function(request, response){
   dataset = request.params.dataset.split(',');
   dataset = dataset.join(', ');
-  response.send(findTableObjectWithName(dataset));
+  response.send(findTableMeta(dataset));
 }
 
 
