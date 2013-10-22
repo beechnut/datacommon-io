@@ -11,6 +11,7 @@ var tables = require('./shared.js').spatial()[0].tables;
 var shared = require('./shared.js');
 var sample_geojson = require('./shared.js').sample_geojson();
 var _ = require('underscore');
+var util = require('util');
 
 var findTableMeta = function(dataset_name) {
   for(t=0; t<tables.length; t++){
@@ -22,18 +23,29 @@ var findTableMeta = function(dataset_name) {
 
 
 var makeGeoJSONQueryString = function(schema_name, table, callback) { 
-  query = 'SELECT ' + table.key + ' AS key, ST_AsGeoJSON(the_geom) AS geojson FROM ';
+  query = 'SELECT ' + table.key + ' AS key, ST_AsGeoJSON('
+  query = query + 'ST_Transform(the_geom, 4326)) AS geojson FROM '
   query = query + schema_name + '.' + table.table_name;
+  console.log(query);
   if(callback) callback(query);
 }
+
 
 var makeIntersectQueryString = function(schema_name, table, posted_geojson, callback) { 
-  query = 'SELECT ' + table.key + ' AS key, ST_AsGeoJSON(ST_Intersection(ST_SetSRID('
-        + 'ST_GeomFromGeoJSON(\'' + posted_geojson + '\'), 4326),'
-        + 'ST_Transform(the_geom, 4326))) AS geojson FROM ' + schema_name + '.' + table.table_name;
+  // query = 'SELECT ' + table.key + ' AS key, ST_AsGeoJSON(ST_Intersection(ST_SetSRID('
+  //       + 'ST_GeomFromGeoJSON(' + JSON.stringify(posted_geojson) + '), 4326),'
+  //       + 'ST_Transform(the_geom, 4326))) AS geojson FROM ' + schema_name + '.' + table.table_name;
+  query = 'SELECT ST_AsGeoJSON('
+          + 'ST_Intersection('
+            + 'ST_SetSRID(ST_GeomFromGeoJSON('
+              + '\'{"type":"Polygon","coordinates":[[[-71.41937255859375,41.98195261665715],[-71.41937255859375,42.70060440808085],[-70.88104248046875,42.70060440808085],[-70.88104248046875,41.98195261665715],[-71.41937255859375,41.98195261665715]]]}}\'), 4326),'
+              + 'ST_Transform(the_geom, 4326)'
+              + ')'
+            + ') AS geojson '
+          + 'FROM gisdata.ma_census2010_tracts;'
+  console.log(query);
   if(callback) callback(query);
 }
-
 
 
 function postGISQueryToFeatureCollection(queryResult, callback) {
@@ -95,9 +107,9 @@ exports.meta = function(request, response){
 
 exports.intersect = function(request, response){
   dataset = request.params.dataset;
-  posted_geojson = request.params.posted_geojson;
+  var posted_geojson = request.body;
 
-  if (_.isEmpty(JSON.parse(posted_geojson))) posted_geojson = sample_geojson;
+  if (_.isEmpty(posted_geojson)) posted_geojson = sample_geojson;
 
   table = findTableMeta(dataset);
 
