@@ -30,19 +30,30 @@ var makeGeoJSONQueryString = function(schema_name, table, callback) {
   if(callback) callback(query);
 }
 
+var floatOnOkay = function (key, value) {
+  if (util.isArray(value)) {
+    if (typeof(value[0]) == 'string'){
+      return Array(parseFloat(value[0]), parseFloat(value[1]));
+    } else {
+      return value;
+    }
+  }
+  return value;
+}
 
 var makeIntersectQueryString = function(schema_name, table, posted_geojson, callback) { 
   // query = 'SELECT ' + table.key + ' AS key, ST_AsGeoJSON(ST_Intersection(ST_SetSRID('
   //       + 'ST_GeomFromGeoJSON(' + JSON.stringify(posted_geojson) + '), 4326),'
   //       + 'ST_Transform(the_geom, 4326))) AS geojson FROM ' + schema_name + '.' + table.table_name;
-  query = 'SELECT ST_AsGeoJSON('
-          + 'ST_Intersection('
-            + 'ST_SetSRID(ST_GeomFromGeoJSON('
-              + '\'{"type":"Polygon","coordinates":[[[-71.41937255859375,41.98195261665715],[-71.41937255859375,42.70060440808085],[-70.88104248046875,42.70060440808085],[-70.88104248046875,41.98195261665715],[-71.41937255859375,41.98195261665715]]]}}\'), 4326),'
-              + 'ST_Transform(the_geom, 4326)'
-              + ')'
-            + ') AS geojson '
-          + 'FROM gisdata.ma_census2010_tracts;'
+  console.log('POSTED GEOJSON: ' + JSON.stringify(posted_geojson, floatOnOkay));
+  query = "SELECT ST_AsGeoJSON("
+          + "ST_Intersection("
+            + "ST_SetSRID(ST_GeomFromGeoJSON("
+                + "'" + JSON.stringify(posted_geojson, floatOnOkay) + "'), 4326)"
+                + ", ST_Transform(the_geom, 4326)"
+              + ")"
+            + ") AS geojson "
+          + "FROM gisdata.ma_census2010_tracts;"
   console.log(query);
   if(callback) callback(query);
 }
@@ -69,9 +80,11 @@ function postGISQueryToFeatureCollection(queryResult, callback) {
       }
     }
     // Push the feature into the features array in the geojson object.
-    if (!feature.geometry.geometries) geojson.features.push(feature);
+    if (feature.geometry != null){
+      geojson.features.push(feature);
+    }
   }
-  console.log(geojson.features.length);
+  console.log(geojson.features.length + " features returned.");
   // return the FeatureCollection geojson object.
   if (callback) callback(geojson);
 }
