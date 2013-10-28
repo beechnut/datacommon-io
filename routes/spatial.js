@@ -42,18 +42,16 @@ var floatOnOkay = function (key, value) {
 }
 
 var makeIntersectQueryString = function(schema_name, table, posted_geojson, callback) { 
-  // query = 'SELECT ' + table.key + ' AS key, ST_AsGeoJSON(ST_Intersection(ST_SetSRID('
-  //       + 'ST_GeomFromGeoJSON(' + JSON.stringify(posted_geojson) + '), 4326),'
-  //       + 'ST_Transform(the_geom, 4326))) AS geojson FROM ' + schema_name + '.' + table.table_name;
-  console.log('POSTED GEOJSON: ' + JSON.stringify(posted_geojson, floatOnOkay));
-  query = "SELECT ST_AsGeoJSON("
-          + "ST_Intersection("
-            + "ST_SetSRID(ST_GeomFromGeoJSON("
-                + "'" + JSON.stringify(posted_geojson, floatOnOkay) + "'), 4326)"
-                + ", ST_Transform(the_geom, 4326)"
-              + ")"
-            + ") AS geojson "
-          + "FROM gisdata.ma_census2010_tracts;"
+  query = "SELECT subquery.key, subquery.geojson FROM ("
+            + " SELECT " + table.key + " AS key, ST_AsGeoJSON("
+            + "ST_Intersection("
+              + "ST_SetSRID(ST_GeomFromGeoJSON("
+                  + "'" + JSON.stringify(posted_geojson, floatOnOkay) + "'), 4326)"
+                  + ", ST_Transform(the_geom, 4326)"
+                + ")"
+              + ") AS geojson"
+            + " FROM gisdata." + table.table_name
+          + ") AS subquery WHERE geojson <> '{\"type\":\"GeometryCollection\",\"geometries\":[]}';"
   console.log(query);
   if(callback) callback(query);
 }
@@ -99,7 +97,7 @@ exports.dataset = function(request, response){
   if(!table) response.send("There is no dataset by that name."
                             + "Try <a href=\"/spatial/list\">"
                             + "datacommon.io/datasets/list</a> to see"
-                            + "all available datasets.");
+                            + " all available datasets.");
 
   makeGeoJSONQueryString('gisdata', table, function (query){
     shared.query_database(query, function (result) {

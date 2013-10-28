@@ -17,6 +17,12 @@
         - 
           field_name: fieldnm
           alias:      Humans can read this field name
+        - 
+          field_name: fieldnm
+          alias:      Humans can read this field name
+        - 
+          field_name: fieldnm
+          alias:      Humans can read this field name
     - 
       name:          community_health_centers
       title:         Community Health Centers
@@ -76,7 +82,7 @@
       name:          hubway_stations
       title:         Hubway Stations
       table_name:    hubway_stations
-      key:           
+      key:           gid
       summary_level: 
       geometry_type: 
       extent:        
