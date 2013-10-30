@@ -45,6 +45,7 @@ app.get('/:category/list/verbose', lists.verbose);
 
 app.get('/spatial/:dataset',      spatial.dataset);
 app.get('/spatial/:dataset/meta', spatial.meta);
+app.get('/spatial/:dataset/intersect/:posted_geojson', spatial.intersect);
 app.post('/spatial/:dataset/intersect', spatial.intersect);
 
 // app.get('/boundaries/:dataset',      boundaries.dataset);

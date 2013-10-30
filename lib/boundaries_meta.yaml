@@ -1,0 +1,115 @@
+---
+-
+  category:    boundaries
+  schema_name: gisdata
+  tables:   
+    - 
+      name:          environmental_justice_populations
+      title:         Environmental Justice Populations
+      table_name:    ej_poly
+      key:           gid
+      summary_level: census_blockgroup
+      geometry_type: polygon
+      extent:        
+      source:        
+      last_updated:  
+      attributes:    
+    -    
+      name:          ma_census_tracts_2000
+      title:         Census 2000 Tracts
+      table_name:    ma_census2000_tracts     
+      key:           CT_ID
+      summary_level: census_tract
+      geometry_type: Polygon
+      extent:        MA
+      source:        
+      last_updated:
+      attributes:  
+    - 
+      name:          ma_census_tracts
+      title:         Census 2010 Tracts
+      table_name:    ma_census2010_tracts
+      key:           ct10_id     
+      summary_level: census_tract
+      geometry_type: Polygon
+      extent:        MA
+      source:        
+      last_updated:
+      attributes:  
+    - 
+      name:          ma_municipalities
+      title:         Massachusetts Municipalities
+      table_name:    ma_municipal
+      key:           MUNI_ID
+      summary_level: municipality
+      geometry_type: Polygon
+      extent:        MA
+      source:
+      last_updated:
+      attributes:  
+    - 
+      name:          mapc_outline
+      title:         MAPC Outline (without coast)
+      table_name:    mapc_outline_nocoast
+      key:           
+      summary_level: 
+      geometry_type: 
+      extent:        
+      source:        
+      last_updated:
+      attributes:  
+    - 
+      name:          mapc_municipalities
+      title:         MAPC Municipalities
+      table_name:    mapc_towns_poly
+      key:           MUNI_ID
+      summary_level: municipality
+      geometry_type: Polygon
+      extent:        MA
+      source:
+      last_updated:
+      attributes:
+    - 
+      name:          massachusetts_towns
+      title:         Massachusetts Towns
+      table_name:    matowns
+      key:           
+      summary_level: 
+      geometry_type: 
+      extent:        
+      source:        
+      last_updated:
+      attributes:  
+    - 
+      name:          open_spaces
+      title:         Open Space
+      table_name:    openspace_poly
+      key:           OS_ID
+      summary_level: 
+      geometry_type: Polygon
+      extent:        
+      source:        
+      last_updated:
+      attributes:  
+    - 
+      name:          school_districts
+      title:         School Districts
+      table_name:    school_districts
+      key:           districtid
+      summary_level: 
+      geometry_type: Polygon
+      extent:        MA
+      source:        
+      last_updated:
+      attributes:  
+    - 
+      name:          zip_codes
+      title:         Zip Codes
+      table_name:    zip_codes
+      key:           
+      summary_level: 
+      geometry_type: MultiPolygon
+      extent:        MA
+      source:        
+      last_updated:  
+      attributes:  

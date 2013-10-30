@@ -118,7 +118,15 @@ exports.meta = function(request, response){
 
 exports.intersect = function(request, response){
   dataset = request.params.dataset;
-  var posted_geojson = request.body;
+  var posted_geojson;
+
+  if (request.method == 'GET') {
+    posted_geojson = JSON.parse(request.params.posted_geojson);
+  }
+  if (request.method == 'POST'){
+    posted_geojson = request.body;
+  }
+  console.log(request.method, posted_geojson);
 
   if (_.isEmpty(posted_geojson)) posted_geojson = sample_geojson;
 

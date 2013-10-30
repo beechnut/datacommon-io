@@ -73,6 +73,12 @@ To view all available non-spatial
 GET `datacommon.io/tabular/list`
 
 
+
+
+
+
+
+
 ### Boundaries
 
 #### Get datasets
@@ -148,6 +154,11 @@ Each polygon returned from an intersect includes a `weight` attribute. If your s
 
 
 
+
+
+
+
+
 ### Tabular
 
 Most of the data in the DataCommon is not itself yet spatial, but can be joined to spatial data.
@@ -200,6 +211,11 @@ i.e. __GET__ `datacommon.io/tabular/transportation/traveltime_to_work_by_residen
 
 
 
+
+
+
+
+
 ### Spatial + Tabular = Geographic
 
 If the spatial and tabular datasets cannot be joined (i.e. they don't have a common join key), an error will be returned, such as:
@@ -226,34 +242,34 @@ If the spatial and tabular datasets cannot be joined (i.e. they don't have a com
 
 #### To attach __all__ attributes from a table to specified spatial data
 
-__GET__ `datacommon.io/geography/category/dataset/spatial/dataset/`
+__GET__ `datacommon.io/geographic/category/dataset/spatial/dataset/`
 
-i.e. __GET__ `datacommon.io/geography/health/disease_rates/spatial/hospitals/`
+i.e. __GET__ `datacommon.io/geographic/health/disease_rates/spatial/hospitals/`
 
 
 #### To attach __select__ attributes from a table to specified spatial data
 
-__GET__ `datacommon.io/geography/category/dataset/field(s)/spatial/dataset/`
+__GET__ `datacommon.io/geographic/category/dataset/field(s)/spatial/dataset/`
 
-i.e. __GET__ `datacommon.io/geography/health/disease_rates/malaria_cases/spatial/hospitals/`
-i.e. __GET__ `datacommon.io/geography/health/disease_rates/malaria_cases,patient_deaths/spatial/hospitals/`
+i.e. __GET__ `datacommon.io/geographic/health/disease_rates/malaria_cases/spatial/hospitals/`
+i.e. __GET__ `datacommon.io/geographic/health/disease_rates/malaria_cases,patient_deaths/spatial/hospitals/`
 
 
 #### To attach attributes to the roughest or finest available summary level
 
-__GET__ `datacommon.io/geography/category/dataset/spatial/roughest/`
-__GET__ `datacommon.io/geography/category/dataset/spatial/finest/`
+__GET__ `datacommon.io/geographic/category/dataset/spatial/roughest/`
+__GET__ `datacommon.io/geographic/category/dataset/spatial/finest/`
 
-__GET__ `datacommon.io/geography/category/dataset/field(s)/spatial/roughest/`
-__GET__ `datacommon.io/geography/category/dataset/field(s)/spatial/finest/`
+__GET__ `datacommon.io/geographic/category/dataset/field(s)/spatial/roughest/`
+__GET__ `datacommon.io/geographic/category/dataset/field(s)/spatial/finest/`
 
 
 #### To retrieve attribute data tied to spatial data with an intersect
 
-__GET__ `datacommon.io/geography/category/dataset/spatial/dataset/intersect/posted_geojson`
+__GET__ `datacommon.io/geographic/category/dataset/spatial/dataset/intersect/posted_geojson`
 
-__GET__ `datacommon.io/geography/category/dataset/spatial/roughest/intersect/posted_geojson`
-__GET__ `datacommon.io/geography/category/dataset/spatial/finest/intersect/posted_geojson`
+__GET__ `datacommon.io/geographic/category/dataset/spatial/roughest/intersect/posted_geojson`
+__GET__ `datacommon.io/geographic/category/dataset/spatial/finest/intersect/posted_geojson`
 
 
 

@@ -1,0 +1,117 @@
+---
+-
+  category:    tabular
+  schema_name: weave
+  tables:
+    -
+      name:        means_of_transportation_to_work_by_residence
+      title:      'Means of Transportation to Work by Residence'
+      universe:   'Workers 16 years and over'
+      table_name: 'b08301_means_of_transportation_to_work_by_residence_acs'
+      key:         gid
+      summary_levels:
+        - census_blockgroup
+        - census_tract
+        - municipality
+      finest_summary_level: census_blockgroup
+      geometry_type: Point
+      extent:        
+      source:        
+      last_updated:
+      attributes:
+        -
+          field_name: wrk16ovr   
+          alias:      'Workers 16 years and over'
+        -
+          field_name: wrk16ovrme 
+          alias:      'Workers 16 years and over, MOE'
+        -
+          field_name: ctv        
+          alias:      'Car, truck, or van: including Drove alone and Carpooled'
+        -
+          field_name: ctv_me     
+          alias:      'Car, truck, or van: including Drove alone and Carpooled, MOE'
+        -
+          field_name: pubtran    
+          alias:      'Public transportation (excluding taxicab): Includes Bus, Streetcar, Subway, Railroad, Ferryboat'
+        -
+          field_name: pubtran_me 
+          alias:      'Public transportation (excluding taxicab): Includes Bus, Streetcar, Subway, Railroad, Ferryboat, MOE'
+        -
+          field_name: taxi       
+          alias:      'Taxicab'
+        -
+          field_name: taxi_me    
+          alias:      'Taxicab, MOE'
+        -
+          field_name: mcycle     
+          alias:      'Motorcycle'
+        -
+          field_name: mcycle_me  
+          alias:      'Motorcycle, MOE'
+        -
+          field_name: bicycle    
+          alias:      'Bicycle'
+        -
+          field_name: bicycleme  
+          alias:      'Bicycle, MOE'
+        -
+          field_name: walk       
+          alias:      'Walked'
+        -
+          field_name: walk_me    
+          alias:      'Walked, MOE'
+        -
+          field_name: other      
+          alias:      'Other means'
+        -
+          field_name: other_me   
+          alias:      'Other means, MOE'
+        -
+          field_name: home       
+          alias:      'Worked at home'
+        -
+          field_name: home_me    
+          alias:      'Worked at home, MOE'
+        -
+          field_name: ctv_p      
+          alias:      '% Car, truck, or van: including Drove alone and Carpooled'
+        -
+          field_name: ctv_mep    
+          alias:      '% Car, truck, or van: including Drove alone and Carpooled, MOE'
+        -
+          field_name: pubtran_p  
+          alias:      '% Public transportation: Bus, Streetcar, Subway, Railroad, Ferryboat'
+        -
+          field_name: pubtranmep 
+          alias:      '% Public transportation: Bus, Streetcar, Subway, Railroad, Ferryboat, MOE'
+        -
+          field_name: taxi_p     
+          alias:      '% Taxicab'
+        -
+          field_name: taxi_mep   
+          alias:      '% Taxicab, MOE'
+        -
+          field_name: mcycle_p   
+          alias:      '% Motorcycle'
+        -
+          field_name: mcycle_mep 
+          alias:      '% Motorcycle, MOE'
+        -
+          field_name: bicycle_p  
+          alias:      '% Bicycle'
+        -
+          field_name: bicyclemep 
+          alias:      '% Bicycle, MOE'
+        -
+          field_name: walk_p     
+          alias:      '% Walked'
+        -
+          field_name: walk_mep   
+          alias:      '% Walked, MOE'
+        -
+          field_name: other_p    
+          alias:      '% Other means'
+        -
+          field_name: other_mep  
+          alias:      '% Other means, MOE'

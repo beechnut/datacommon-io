@@ -4,14 +4,15 @@
  * including lists of 
  */
 
-var spatial = require('./shared.js').spatial();
-
+var spatial    = require('./shared.js').spatial();
+var boundaries = require('./shared.js').boundaries();
 
 var findCategoryObject = function(category, callback){
-  for(var t=0 ; t<spatial.length ; t++){
-    if (spatial[t].category == category) { 
+  var table = eval(category);
+  for(var t=0 ; t<table.length ; t++){
+    if (table[t].category == category) { 
       if (callback) {
-        callback(spatial[t]);
+        callback(table[t]);
       }
     }
   }
@@ -29,6 +30,7 @@ var getTableList = function(category, callback) {
   });
 }
 
+
 var getVerboseTableList = function(category, callback) {
   findCategoryObject(category, function (category_obj) {
     if (callback) callback(category_obj.tables);
@@ -40,6 +42,7 @@ var getVerboseTableList = function(category, callback) {
 
 exports.list = function(request, response){
   category = request.params.category;
+  console.log('list category ' + category);
   categories = ['datasets','boundaries','spatial']; // TODO refactor/DRY
 
   if (categories.indexOf(category) > -1) {
