@@ -110,6 +110,7 @@ exports.dataset = function(request, response){
 
 
 exports.meta = function(request, response){
+  
   dataset = request.params.dataset.split(',');
   dataset = dataset.join(', ');
   response.send(findTableMeta(dataset));

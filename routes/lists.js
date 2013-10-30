@@ -6,6 +6,8 @@
 
 var spatial    = require('./shared.js').spatial();
 var boundaries = require('./shared.js').boundaries();
+var tabular    = require('./shared.js').tabular();
+
 
 var findCategoryObject = function(category, callback){
   var table = eval(category);
@@ -43,7 +45,7 @@ var getVerboseTableList = function(category, callback) {
 exports.list = function(request, response){
   category = request.params.category;
   console.log('list category ' + category);
-  categories = ['datasets','boundaries','spatial']; // TODO refactor/DRY
+  categories = ['boundaries','spatial','tabular']; // TODO refactor/DRY
 
   if (categories.indexOf(category) > -1) {
 
@@ -52,7 +54,12 @@ exports.list = function(request, response){
     });
     
   } else {
-    response.send("category must be one of: " + categories.join(', '));
+    response_error = {
+      'status': 'error',
+      'reason': 'Category in /:category/list must be one of: ' + categories.join(', '),
+      'accepted_categories': categories
+    }
+    response.send( response_error );
   }
 };
 
@@ -60,14 +67,19 @@ exports.list = function(request, response){
 exports.verbose = function(request, response){
 
   category = request.params.category;
-  categories = ['datasets','boundaries','spatial'];
+  categories = ['boundaries','spatial','tabular'];
 
   if (categories.indexOf(category) > -1) {
     getVerboseTableList(category, function (tables) { 
       response.send(tables);
     });
   } else {
-    response.send("category must be one of: " + categories.join(', '));
+    response_error = {
+      'status': 'error',
+      'reason': 'Category in /:category/list must be one of: ' + categories.join(', '),
+      'accepted_categories': categories
+    }
+    response.send( response_error );
   }
 
 };

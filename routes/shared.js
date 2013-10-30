@@ -8,6 +8,10 @@ exports.boundaries = function() {
   return require('../lib/boundaries_meta.yaml');
 }
 
+exports.tabular = function() {
+  return require('../lib/tabular_meta.yaml');
+}
+
 
 exports.query_database = function(querystring, callback){
   var conn   = process.env.DB_URL || 'postgres://localhost/gisdata';

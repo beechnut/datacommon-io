@@ -48,9 +48,14 @@ app.get('/spatial/:dataset/meta', spatial.meta);
 app.get('/spatial/:dataset/intersect/:posted_geojson', spatial.intersect);
 app.post('/spatial/:dataset/intersect', spatial.intersect);
 
+// TODO: Ripe for refactoring:
+// boundaries are just a subset of spatial
 // app.get('/boundaries/:dataset',      boundaries.dataset);
 // app.get('/boundaries/:dataset/meta', boundaries.meta);
 // app.get('/boundaries/:dataset/intersect/:posted_geojson', boundaries.intersect);
+
+// app.get('/tabular/:dataset'),     tabular.dataset);
+app.get('/tabular/:dataset/meta', spatial.meta);
 
 
 http.createServer(app).listen(app.get('port'), function(){
