@@ -10,9 +10,15 @@
       table_name: 'b08301_means_of_transportation_to_work_by_residence_acs'
       key:         gid
       summary_levels:
-        - census_blockgroup
-        - census_tract
-        - municipality
+        - 
+          name:   census_blockgroup
+          suffix: bg
+        - 
+          name:   census_tract
+          suffix: ct
+        - 
+          name:   municipality
+          suffix: m
       finest_summary_level: census_blockgroup
       geometry_type: Point
       extent:        

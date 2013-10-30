@@ -7,8 +7,8 @@ var express = require('express');
 var yaml    = require('js-yaml');
 
 var routes     = require('./routes');
-var lists      = require('./routes/lists');
 var spatial    = require('./routes/spatial');
+var shared     = require('./routes/shared');
 // var boundaries = require('./routes/boundaries');
 
 var http    = require('http');
@@ -40,11 +40,16 @@ app.all('*', function(req, res, next) {
 
 app.get('/', routes.index);
 
-app.get('/:category/list',         lists.list);
-app.get('/:category/list/verbose', lists.verbose);
+app.get('/:category/list',          shared.list);
+app.get('/:category/list/verbose',  shared.verbose);
+app.get('/:category/:dataset/meta', shared.meta)
 
+// there's a way to get this to
+// /:category/:dataset with some conditionals
+// but beware typechecking overuse
 app.get('/spatial/:dataset',      spatial.dataset);
-app.get('/spatial/:dataset/meta', spatial.meta);
+
+
 app.get('/spatial/:dataset/intersect/:posted_geojson', spatial.intersect);
 app.post('/spatial/:dataset/intersect', spatial.intersect);
 
@@ -53,9 +58,6 @@ app.post('/spatial/:dataset/intersect', spatial.intersect);
 // app.get('/boundaries/:dataset',      boundaries.dataset);
 // app.get('/boundaries/:dataset/meta', boundaries.meta);
 // app.get('/boundaries/:dataset/intersect/:posted_geojson', boundaries.intersect);
-
-// app.get('/tabular/:dataset'),     tabular.dataset);
-app.get('/tabular/:dataset/meta', spatial.meta);
 
 
 http.createServer(app).listen(app.get('port'), function(){

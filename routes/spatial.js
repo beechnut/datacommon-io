@@ -7,19 +7,10 @@
 */
 
 var pg     = require('pg');
-var tables = require('./shared.js').spatial()[0].tables;
 var shared = require('./shared.js');
 var sample_geojson = require('./shared.js').sample_geojson();
 var _ = require('underscore');
 var util = require('util');
-
-var findTableMeta = function(dataset_name) {
-  for(t=0; t<tables.length; t++){
-    if(tables[t].name === dataset_name) {
-      return(tables[t]);
-    }
-  }
-}
 
 
 var makeGeoJSONQueryString = function(schema_name, table, callback) { 
@@ -92,7 +83,7 @@ function postGISQueryToFeatureCollection(queryResult, callback) {
 
 exports.dataset = function(request, response){
   var dataset = request.params.dataset.split(',').join(', ');
-  var table = findTableMeta(dataset);
+  var table = shared.getTable('spatial', dataset);
 
   if(!table) response.send("There is no dataset by that name."
                             + "Try <a href=\"/spatial/list\">"
@@ -106,14 +97,6 @@ exports.dataset = function(request, response){
       });
     });
   }); 
-}
-
-
-exports.meta = function(request, response){
-  
-  dataset = request.params.dataset.split(',');
-  dataset = dataset.join(', ');
-  response.send(findTableMeta(dataset));
 }
 
 
@@ -131,7 +114,7 @@ exports.intersect = function(request, response){
 
   if (_.isEmpty(posted_geojson)) posted_geojson = sample_geojson;
 
-  table = findTableMeta(dataset);
+  table = shared.getTable('spatial', dataset);
 
   if(!table) response.send("There is no dataset by that name."
                             + "Try <a href=\"/spatial/list\">"
