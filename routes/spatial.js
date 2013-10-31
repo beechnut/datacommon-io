@@ -83,7 +83,7 @@ function postGISQueryToFeatureCollection(queryResult, callback) {
 
 exports.dataset = function(request, response){
   var dataset = request.params.dataset.split(',').join(', ');
-  var table = shared.getTable('spatial', dataset);
+  var table   = shared.getTable('spatial', dataset);
 
   if(!table) response.send("There is no dataset by that name."
                             + "Try <a href=\"/spatial/list\">"

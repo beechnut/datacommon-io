@@ -2,6 +2,7 @@ var pg   = require('pg');
 var _    = require('underscore');
 var util = require('util');
 
+
 exports.spatial = function() {
   return require('../lib/spatial_meta.yaml');
 }
@@ -88,6 +89,8 @@ exports.find = function (needle, haystack, value){
 
 exports.getTable = function(category, dataset_name) {
   var cat_tables = tablesFor(category);
+  console.log(dataset_name);
+  console.log(cat_tables);
   return exports.find(dataset_name, cat_tables, 'name');
 }
 

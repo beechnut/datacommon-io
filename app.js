@@ -8,7 +8,9 @@ var yaml    = require('js-yaml');
 
 var routes     = require('./routes');
 var spatial    = require('./routes/spatial');
+var tabular     = require('./routes/tabular');
 var shared     = require('./routes/shared');
+
 // var boundaries = require('./routes/boundaries');
 
 var http    = require('http');
@@ -47,7 +49,10 @@ app.get('/:category/:dataset/meta', shared.meta)
 // there's a way to get this to
 // /:category/:dataset with some conditionals
 // but beware typechecking overuse
-app.get('/spatial/:dataset',      spatial.dataset);
+app.get('/spatial/:dataset', spatial.dataset);
+
+app.get('/tabular/:dataset', tabular.dataset);
+app.get('/tabular/:dataset/:fields', tabular.dataset_fields);
 
 
 app.get('/spatial/:dataset/intersect/:posted_geojson', spatial.intersect);

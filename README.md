@@ -191,9 +191,9 @@ Finest (smallest units):  __GET__ `datacommon.io/tabular/category/dataset/finest
 
 #### To discover which fields are available
 
-__GET__ `datacommon.io/tabular/category/dataset/fields`
+__GET__ `datacommon.io/tabular/category/dataset/meta`
 
-i.e. __GET__ `datacommon.io/tabular/transportation/traveltime_to_work_by_residence/fields`
+i.e. __GET__ `datacommon.io/tabular/transportation/traveltime_to_work_by_residence/meta`
 
 
 #### To retrieve data about a field
