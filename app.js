@@ -52,7 +52,7 @@ app.get('/:category/:dataset/meta', shared.meta)
 app.get('/spatial/:dataset', spatial.dataset);
 
 app.get('/tabular/:dataset', tabular.dataset);
-app.get('/tabular/:dataset/:fields', tabular.dataset_fields);
+app.get('/tabular/:dataset/:fields', tabular.dataset);
 
 
 app.get('/spatial/:dataset/intersect/:posted_geojson', spatial.intersect);

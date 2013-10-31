@@ -22,7 +22,14 @@
           name:   municipality
           suffix: m
           key:    muni_id
-      finest_summary_level: census_blockgroup
+      finest:
+        name:   census_blockgroup
+        key:    bg10_id
+        suffix: bg
+      roughest:
+        name:   municipality
+        key:    muni_id
+        suffix: m
       geometry_type: Point
       extent:        
       source:        
