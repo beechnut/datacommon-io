@@ -51,16 +51,16 @@ app.get('/:category/:dataset/meta', shared.meta)
 // /:category/:dataset with some conditionals
 // but beware typechecking overuse
 app.get('/spatial/:dataset', spatial.dataset);
+app.get('/spatial/:dataset/intersect/:posted_geojson', spatial.intersect);
+app.post('/spatial/:dataset/intersect', spatial.intersect);
 
 app.get('/tabular/:dataset',         tabular.dataset);
 app.get('/tabular/:dataset/:fields', tabular.dataset);
 
-app.get('/geographic/spatial/:s_dataset/tabular/:t_dataset', geographic.dataset);
 app.get('/geographic/spatial/:s_dataset/tabular/:t_dataset/:fields', geographic.dataset);
+app.post('/geographic/spatial/:s_dataset/tabular/:t_dataset/intersect', geographic.intersect);
 
 
-app.get('/spatial/:dataset/intersect/:posted_geojson', spatial.intersect);
-app.post('/spatial/:dataset/intersect', spatial.intersect);
 
 // TODO: Ripe for refactoring:
 // boundaries are just a subset of spatial
