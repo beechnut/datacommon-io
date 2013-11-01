@@ -58,6 +58,7 @@ app.get('/tabular/:dataset',         tabular.dataset);
 app.get('/tabular/:dataset/:fields', tabular.dataset);
 
 app.get('/geographic/spatial/:s_dataset/tabular/:t_dataset/:fields', geographic.dataset);
+app.post('/geographic/spatial/:s_dataset/tabular/:t_dataset/:fields/intersect', geographic.intersect);
 app.post('/geographic/spatial/:s_dataset/tabular/:t_dataset/intersect', geographic.intersect);
 
 
