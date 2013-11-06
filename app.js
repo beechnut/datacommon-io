@@ -50,6 +50,7 @@ app.get('/:category/:dataset/meta', shared.meta)
 // there's a way to get this to
 // /:category/:dataset with some conditionals
 // but beware typechecking overuse
+app.get('/spatial/overlap', spatial.overlap);
 app.get('/spatial/:dataset', spatial.dataset);
 app.get('/spatial/:dataset/intersect/:posted_geojson', spatial.intersect);
 app.post('/spatial/:dataset/intersect', spatial.intersect);

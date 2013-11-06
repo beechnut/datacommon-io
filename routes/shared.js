@@ -78,6 +78,15 @@ var list = function(request, verbose){
 }
 
 
+exports.rightSuffix = function (suffix) {
+  console.log("suffix: " + suffix);
+  if(_.isNull(suffix)) {
+    return "";
+  } else {
+    return "_" + suffix;
+  }
+}
+
 
 
 exports.find = function (needle, haystack, value){

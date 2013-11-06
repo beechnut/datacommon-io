@@ -1,2 +1,4 @@
 /node_modules/
 lib/catalogue_a_database.md
+/tmp/
+.DS_Store

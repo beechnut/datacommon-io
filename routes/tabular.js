@@ -4,7 +4,7 @@ var pg = require('pg');
 var makeQuery = function(schema_name, table_name, fields, suffix, callback) {
   var query = "SELECT array_to_json(array_agg(row_to_json(s))) FROM "
             + "(SELECT " + fields + " from " + schema_name
-              + "." + table_name + "_" + suffix + ") s;";
+              + "." + table_name + shared.rightSuffix(suffix) + ") s;";
 
   console.log(query);
   if (callback) callback(query);

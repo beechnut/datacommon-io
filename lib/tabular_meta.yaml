@@ -6,6 +6,7 @@
     -
       name:        means_transportation_to_work_by_residence
       title:      'Means of Transportation to Work by Residence'
+      category:    Transportation
       universe:   'Workers 16 years and over'
       table_name: 'b08301_means_transportation_to_work_by_residence_acs'
       key:         gid
@@ -131,3 +132,465 @@
         -
           field_name: other_mep  
           alias:      '% Other means, MOE'
+    -
+      name:        poverty_by_household_type
+      title:      'Poverty by Household Type'
+      category:    Economy 
+      universe:   
+      table_name: 'b17017_poverty_by_hh_type_acs'
+      key:         
+      summary_levels:
+        - 
+          name:   census_blockgroup
+          suffix: bg
+          key:    bg10_id
+        - 
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        - 
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest:
+        name:   census_blockgroup
+        suffix: bg
+        key:    bg10_id
+      roughest:
+        name:   municipality
+        suffix: m
+        key:    muni_id
+      geometry_type: MultiPolygon
+      extent:        
+      source:        
+      last_updated:  
+      attributes:
+        - 
+          field_name: hh
+          alias: 'Households'
+        - 
+          field_name: hh_me
+          alias: 'Households, MOE'
+        - 
+          field_name: f_hh
+          alias: 'Family households'
+        - 
+          field_name: f_hhme
+          alias: 'Family households, MOE'
+        - 
+          field_name: mf_hh
+          alias: 'Married-couple family households'
+        - 
+          field_name: mf_hhme
+          alias: 'Married-couple family households, MOE'
+        - 
+          field_name: of_hh
+          alias: 'Other family households'
+        - 
+          field_name: of_hhme
+          alias: 'Other family households, MOE'
+        - 
+          field_name: nf_hh
+          alias: 'Nonfamily households'
+        - 
+          field_name: nf_hhme
+          alias: 'Nonfamily households, MOE'
+        - 
+          field_name: pov_hh
+          alias: 'Households, income in the past 12 months below poverty level'
+        - 
+          field_name: pov_hhme
+          alias: 'Households, income in the past 12 months below poverty level, MOE'
+        - 
+          field_name: pov_f
+          alias: 'Family households, income in the past 12 months below poverty level'
+        - 
+          field_name: pov_fme
+          alias: 'Family households, income in the past 12 months below poverty level, MOE'
+        - 
+          field_name: pov_mf
+          alias: 'Married-couple family households, income in the past 12 months below poverty level'
+        - 
+          field_name: pov_mfme
+          alias: 'Married-couple family households, income in the past 12 months below poverty level, MOE'
+        - 
+          field_name: pov_of
+          alias: 'Other family households, income in the past 12 months below poverty level'
+        - 
+          field_name: pov_ofme
+          alias: 'Other family households, income in the past 12 months below poverty level, MOE'
+        - 
+          field_name: pov_nf
+          alias: 'Non-family households, income in the past 12 months below poverty level'
+        - 
+          field_name: pov_nfme
+          alias: 'Non-family households, income in the past 12 months below poverty level, MOE'
+        - 
+          field_name: pov_hh_p
+          alias: '% Households, income in the past 12 months below poverty level'
+        - 
+          field_name: pov_hhmep
+          alias: '% Households, income in the past 12 months below poverty level, MOE %'
+        - 
+          field_name: pov_f_p
+          alias: '% Family households, income in the past 12 months below poverty level'
+        - 
+          field_name: pov_fmep
+          alias: '% Family households, income in the past 12 months below poverty level, MOE %'
+        - 
+          field_name: pov_mf_p
+          alias: '% Married-couple family households, income in the past 12 months below poverty level'
+        - 
+          field_name: pov_mfmep
+          alias: '% Married-couple family households, income in the past 12 months below poverty level, MOE %'
+        - 
+          field_name: pov_of_p
+          alias: '% Other family households, income in the past 12 months below poverty level'
+        - 
+          field_name: pov_ofmep
+          alias: '% Other family households, income in the past 12 months below poverty level, MOE %'
+        - 
+          field_name: pov_nf_p
+          alias: '% Non-family households, income in the past 12 months below poverty level'
+        - 
+          field_name: pov_nfmep
+          alias: '% Non-family households, income in the past 12 months below poverty level, MOE %'
+        - 
+          field_name: np_hh
+          alias: 'Households, income in the past 12 months at or above poverty level'
+        - 
+          field_name: np_hhme
+          alias: 'Households, income in the past 12 months at or above poverty level, MOE'
+        - 
+          field_name: np_f
+          alias: 'Family households, income in the past 12 months at or above poverty level'
+        - 
+          field_name: np_fme
+          alias: 'Family households, income in the past 12 months at or above poverty level, MOE'
+        - 
+          field_name: np_mf
+          alias: 'Married-couple family households, income in the past 12 months at or above poverty level'
+        - 
+          field_name: np_mfme
+          alias: 'Married-couple family households, income in the past 12 months at or above poverty level, MOE'
+        - 
+          field_name: np_of
+          alias: 'Other family households, income in the past 12 months at or above poverty level'
+        - 
+          field_name: np_ofme
+          alias: 'Other family households, income in the past 12 months at or above poverty level, MOE'
+        - 
+          field_name: np_nf
+          alias: 'Non-family households, income in the past 12 months at or above poverty level'
+        - 
+          field_name: np_nfme
+          alias: 'Non-family households, income in the past 12 months at or above poverty level, MOE'
+        - 
+          field_name: np_hh_p
+          alias: '% Households, income in the past 12 months at or above poverty level'
+        - 
+          field_name: np_hhmep
+          alias: '% Households, income in the past 12 months at or above poverty level, MOE %'
+        - 
+          field_name: np_f_p
+          alias: '% Family households, income in the past 12 months at or above poverty level'
+        - 
+          field_name: np_fmep
+          alias: '% Family households, income in the past 12 months at or above poverty level, MOE %'
+        - 
+          field_name: np_mf_p
+          alias: '% Married-couple family households, income in the past 12 months at or above poverty level'
+        - 
+          field_name: np_mfmep
+          alias: '% Married-couple family households, income in the past 12 months at or above poverty level, MOE %'
+        - 
+          field_name: np_of_p
+          alias: '% Other family households, income in the past 12 months at or above poverty level'
+        - 
+          field_name: np_ofmep
+          alias: '% Other family households, income in the past 12 months at or above poverty level, MOE %'
+        - 
+          field_name: np_nf_p
+          alias: '% Non-family households, income in the past 12 months at or above poverty level'
+        - 
+          field_name: np_nfmep
+          alias: '% Non-family households, income in the past 12 months at or above poverty level, MOE %'
+    -
+      name:        educational_attainment_25_years
+      title:      'Educational Attainment, 25+ years'
+      category:    Education
+      universe:   
+      table_name:  b15002_educational_attainment_acs
+      key:         
+      summary_levels:
+        - 
+          name:   census_blockgroup
+          suffix: bg
+          key:    bg10_id
+        - 
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        - 
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest:
+        name:   census_blockgroup
+        suffix: bg
+        key:    bg10_id
+      roughest:
+        name:   municipality
+        suffix: m
+        key:    muni_id
+      geometry_type: 
+      extent:        
+      source:        
+      last_updated:
+      attributes:
+        -
+          field_name: acs_year
+          alias:      'ACS Year'
+        -
+          field_name: pop25
+          alias:      'Population 25 years and over'
+        -
+          field_name: pop25_me
+          alias:      'Population 25 years and over, Margin of Error'
+        -
+          field_name: lths
+          alias:      'Less than High School Graduate'
+        -
+          field_name: lths_me
+          alias:      'Less than High School Graduate, Margin of Error'
+        -
+          field_name: hs
+          alias:      'High School Graduate'
+        -
+          field_name: hs_me
+          alias:      'High School Graduate, Margin of Error'
+        -
+          field_name: some_c
+          alias:      'Some College'
+        -
+          field_name: some_c_me
+          alias:      'Some College, Margin of Error'
+        -
+          field_name: assoc
+          alias:      "Associate's Degree"
+        -
+          field_name: assoc_me
+          alias:      "Associate's Degree, Margin of Error"
+        -
+          field_name: assocba
+          alias:      'Associate or Bachelor Degree'
+        -
+          field_name: assocbame
+          alias:      'Associate or Bachelor Degree, Margin of Error'
+        -
+          field_name: ba_plus
+          alias:      "Bachelor's Degree or higher"
+        -
+          field_name: ba_plus_me
+          alias:      "Bachelor's Degree or higher, Margin of Error"
+        -
+          field_name: prof
+          alias:      "Master's Degree or higher"
+        -
+          field_name: prof_me
+          alias:      "Master's Degree or higher, Margin of Error"
+        -
+          field_name: lths_p
+          alias:      '% Less than High School Graduate'
+        -
+          field_name: lths_mep
+          alias:      '% Less than High School Graduate, Margin of Error'
+        -
+          field_name: hs_p
+          alias:      '% High School Graduate'
+        -
+          field_name: hs_mep
+          alias:      '% High School Graduate, Margin of Error'
+        -
+          field_name: some_c_p
+          alias:      '% Some College'
+        -
+          field_name: some_c_mep
+          alias:      '% Some College, Margin of Error'
+        -
+          field_name: assoc_p
+          alias:      "% Associate's Degree"
+        -
+          field_name: assoc_mep
+          alias:      "% Associate's Degree, Margin of Error"
+        -
+          field_name: assocba_p
+          alias:      '% Associate or Bachelor Degree'
+        -
+          field_name: assocbamep
+          alias:      '% Associate or Bachelor Degree, Margin of Error'
+        -
+          field_name: ba_plus_p
+          alias:      "% Bachelor's Degree or higher"
+        -
+          field_name: ba_plusmep
+          alias:      "% Bachelor's Degree or higher, Margin of Error"
+        -
+          field_name: prof_p
+          alias:      "% Master's Degree or higher"
+        -
+          field_name: prof_mep
+          alias:      "% Master's Degree or higher, Margin of Error"
+    - name:           travel_time_to_work
+      title:          Travel Time to Work by Residence
+      category:       Transportation
+      universe:       
+      table_name:     b08303_traveltime_to_work_by_residence_acs
+      key:
+      summary_levels:
+        blockgroup: &bg
+          name:   census_blockgroup
+          suffix: bg
+          key:    bg10_id
+        tract: &ct
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        muni: &m
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest: *bg
+      roughest: *m
+      geometry_type: 
+      extent:        
+      source:        
+      last_updated:
+      attributes: 
+        - 
+          field_name: acs_year
+          alias:      'ACS Year'
+        - 
+          field_name: wrk16ovr
+          alias:      'Workers 16 years and over who did not work at home'
+        - 
+          field_name: wrk16ovrme
+          alias:      'Workers 16 years and over who did not work at home, Margin of Error'
+        - 
+          field_name: mlt15
+          alias:      'Workers 16 years and over who did not work at home, less than 15 minutes'
+        - 
+          field_name: mlt15_me
+          alias:      'Workers 16 years and over who did not work at home, less than 15 minutes, Margin of Error'
+        - 
+          field_name: m15_30
+          alias:      'Workers 16 years and over who did not work at home, 15 to < 30 minutes'
+        - 
+          field_name: m15_30_me
+          alias:      'Workers 16 years and over who did not work at home, 15 to < 30 minutes, Margin of Error'
+        - 
+          field_name: m30_45
+          alias:      'Workers 16 years and over who did not work at home, 30 to < 45 minutes'
+        - 
+          field_name: m30_45_me
+          alias:      'Workers 16 years and over who did not work at home, 30 to < 45 minutes, Margin of Error'
+        - 
+          field_name: m45_60
+          alias:      'Workers 16 years and over who did not work at home, 45 to < 60 minutes'
+        - 
+          field_name: m45_60_me
+          alias:      'Workers 16 years and over who did not work at home, 45 to < 60 minutes, Margin of Error'
+        - 
+          field_name: m60_90
+          alias:      'Workers 16 years and over who did not work at home, 60 to < 90 minutes'
+        - 
+          field_name: m60_90_me
+          alias:      'Workers 16 years and over who did not work at home, 60 to < 90 minutes, Margin of Error'
+        - 
+          field_name: m60ovr
+          alias:      'Workers 16 years and over who did not work at home, more than 60 minutes'
+        - 
+          field_name: m60ovr_me
+          alias:      'Workers 16 years and over who did not work at home, more than 60 minutes, Margin of Error'
+        - 
+          field_name: m90ovr
+          alias:      'Workers 16 years and over who did not work at home, more than 90 minutes'
+        - 
+          field_name: m90ovr_me
+          alias:      'Workers 16 years and over who did not work at home, more than 90 minutes, Margin of Error'
+        - 
+          field_name: mlt15_p
+          alias:      '% Workers 16 years and over who did not work at home, less than 15 minutes'
+        - 
+          field_name: mlt15_mep
+          alias:      '% Workers 16 years and over who did not work at home, less than 15 minutes, Margin of Error'
+        - 
+          field_name: m15_30_p
+          alias:      '% Workers 16 years and over who did not work at home, 15 to < 30 minutes'
+        - 
+          field_name: m15_30_mep
+          alias:      '% Workers 16 years and over who did not work at home, 15 to < 30 minutes, Margin of Error'
+        - 
+          field_name: m30_45_p
+          alias:      '% Workers 16 years and over who did not work at home, 30 to < 45 minutes'
+        - 
+          field_name: m30_45_mep
+          alias:      '% Workers 16 years and over who did not work at home, 30 to < 45 minutes, Margin of Error'
+        - 
+          field_name: m45_60_p
+          alias:      '% Workers 16 years and over who did not work at home, 45 to < 60 minutes'
+        - 
+          field_name: m45_60_mep
+          alias:      '% Workers 16 years and over who did not work at home, 45 to < 60 minutes, Margin of Error'
+        - 
+          field_name: m60_90_p
+          alias:      '% Workers 16 years and over who did not work at home, 60 to < 90 minutes'
+        - 
+          field_name: m60_90_mep
+          alias:      '% Workers 16 years and over who did not work at home, 60 to < 90 minutes, Margin of Error'
+        - 
+          field_name: m60ovr_p
+          alias:      '% Workers 16 years and over who did not work at home, more than 60 minutes'
+        - 
+          field_name: m60ovr_mep
+          alias:      '% Workers 16 years and over who did not work at home, more than 60 minutes, Margin of Error'
+        - 
+          field_name: m90ovr_p
+          alias:      '% Workers 16 years and over who did not work at home, more than 90 minutes'
+        - 
+          field_name: m90ovr_mep
+          alias:      '% Workers 16 years and over who did not work at home, more than 90 minutes, Margin of Error'
+    -
+      name:        unemployment
+      title:      'Unemployment 2012'
+      category:    Economy
+      universe:   
+      table_name: 'econ_unemployment_2012'
+      key:         
+      summary_levels:
+        - &m
+          name:   municipality
+          suffix: 
+          key:    muni_id
+      finest: *m
+      roughest: *m
+      geometry_type: Point
+      extent:        
+      source:        
+      last_updated:
+      attributes:
+        -
+          field_name: municipal
+          alias: 'Municpality Name'
+        -
+          field_name: tot_lf
+          alias: 'Total Labor Force'
+        -
+          field_name: emp_lf
+          alias: 'Employed Labor Force'
+        -
+          field_name: unemp_num
+          alias: 'Unemployment number'
+        -
+          field_name: unemp_rt
+          alias: 'Unemployment rate'

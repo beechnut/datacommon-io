@@ -3,11 +3,13 @@ var pg = require('pg');
 var _ = require('underscore');
 
 
+
+
 var makeQuery = function(s_schema_name, t_schema_name, s_table, t_table, fields, suffix, key, callback) {
 
   var query = "SELECT "+ fields +", ST_AsGeoJSON(ST_Transform(g.the_geom, 4326)) AS geojson "
             + " FROM "+ s_schema_name +"."+ s_table.table_name +" g"
-            + " JOIN "+ t_schema_name +"."+ t_table.table_name +"_" + suffix + " a"
+            + " JOIN "+ t_schema_name +"."+ t_table.table_name + shared.rightSuffix(suffix) + " a"
             + " ON g."+ key +" = a."+ key + " ;"
 
   console.log(query);
@@ -25,7 +27,7 @@ var makeIntersectQuery = function(s_schema_name, t_schema_name, s_table, t_table
     + ")"
   + ") AS geojson"
   + " FROM "+ s_schema_name +"."+ s_table.table_name +" g"
-  + " JOIN "+ t_schema_name +"."+ t_table.table_name +"_" + suffix + " a"
+  + " JOIN "+ t_schema_name +"."+ t_table.table_name + shared.rightSuffix(suffix) + " a"
   + " ON g."+ key +" = a."+ key +" ) AS subquery"
   + " WHERE geojson <> '{\"type\":\"GeometryCollection\",\"geometries\":[]}';"
 

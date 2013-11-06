@@ -40,6 +40,27 @@ var makeIntersectQueryString = function(schema_name, table, posted_geojson, call
 
 
 
+var overlap_query = function (callback){
+
+  var query = "SELECT ST_AsGeoJSON(g.the_geom) as geojson"
+            + " FROM gisdata.ma_census2010_tracts g,"
+              + " ST_SetSRID(ST_GeomFromGeoJSON('{\"type\":\"Polygon\",\"coordinates\":[[[-71.41937255859375,41.98195261665715],[-71.41937255859375,42.70060440808085],[-70.88104248046875,42.70060440808085],[-70.88104248046875,41.98195261665715],[-71.41937255859375,41.98195261665715]]]}}'), 4326) gj"
+            + " WHERE ST_Overlaps(ST_Transform(g.the_geom, 4326), gj) IS TRUE;"
+
+  if(callback) callback(query);
+}
+
+exports.overlap = function (request,response) {
+  console.log("OVERLAP");
+  overlap_query(function (query) {
+    console.log(query);
+    shared.query_database(query, function (result) {
+      shared.postGISQueryToFeatureCollection(result.rows, function (geojson){
+        response.send(geojson);
+      });
+    });
+  });
+}
 
 
 exports.dataset = function(request, response){
