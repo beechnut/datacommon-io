@@ -594,3 +594,1256 @@
         -
           field_name: unemp_rt
           alias: 'Unemployment rate'
+
+    -
+      name:        vehicles_per_household
+      title:      'Vehicles Per Household'
+      category:    Transportation
+      universe:   
+      table_name: 'b25044_hu_vehicles_acs'
+      key:         
+      summary_levels:
+        blockgroup: &bg
+          name:   census_blockgroup
+          suffix: bg
+          key:    bg10_id
+        tract: &ct
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        muni: &m
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest: *bg
+      roughest: *m
+      geometry_type:
+      extent:        
+      source:        
+      last_updated:
+      attributes:
+        -
+          field_name: acs_year
+          alias: 'ACS Year'
+        -
+          field_name: occ_hu
+          alias: 'Occupied housing units'
+        -
+          field_name: occ_hu_me
+          alias: 'Occupied housing units, Margin of Error'
+        -
+          field_name: no_car
+          alias: 'Occupied housing units, no vehicle available'
+        -
+          field_name: no_car_me
+          alias: 'Occupied housing units, no vehicle available, Margin of Error'
+        -
+          field_name: car
+          alias: 'Occupied housing units, 1 or more vehicles available'
+        -
+          field_name: car_me
+          alias: 'Occupied housing units, 1 or more vehicles available, Margin of Error'
+        -
+          field_name: c1
+          alias: 'Occupied housing units, 1 vehicle available'
+        -
+          field_name: c1_me
+          alias: 'Occupied housing units, 1 vehicle available, Margin of Error'
+        -
+          field_name: c2
+          alias: 'Occupied housing units, 2 vehicles available'
+        -
+          field_name: c2_me
+          alias: 'Occupied housing units, 2 vehicles available, Margin of Error'
+        -
+          field_name: c3pl
+          alias: 'Occupied housing units, 3 or more vehicles available'
+        -
+          field_name: c3pl_me
+          alias: 'Occupied housing units, 3 or more vehicles available, Margin of Error'
+        - 
+          field_name: oo_hu
+          alias: 'Owner-occupied housing units'
+        - 
+          field_name: oo_hu_me
+          alias: 'Owner-occupied housing units, Margin of Error'
+        - 
+          field_name: oo_c0
+          alias: 'Owner-occupied housing units, no vehicle available'
+        - 
+          field_name: oo_c0_me
+          alias: 'Owner-occupied housing units, no vehicle available, Margin of Error'
+        - 
+          field_name: oo_car
+          alias: 'Owner-occupied housing units, 1 or more vehicles available'
+        - 
+          field_name: oo_car_me
+          alias: 'Owner-occupied housing units, 1 or more vehicles available, Margin of Error'
+        - 
+          field_name: oo_c1
+          alias: 'Owner-occupied housing units, 1 vehicle available'
+        - 
+          field_name: oo_c1_me
+          alias: 'Owner-occupied housing units, 1 vehicle available, Margin of Error'
+        - 
+          field_name: oo_c2
+          alias: 'Owner-occupied housing units, 2 vehicles available'
+        - 
+          field_name: oo_c2_me
+          alias: 'Owner-occupied housing units, 2 vehicles available, Margin of Error'
+        - 
+          field_name: ooc3pl
+          alias: 'Owner-occupied housing units, 3 or more vehicles available'
+        - 
+          field_name: ooc3pl_me
+          alias: 'Owner-occupied housing units, 3 or more vehicles available, Margin of Error'
+        - 
+          field_name: r_hu
+          alias: 'Renter-occupied housing units'
+        - 
+          field_name: r_hu_me
+          alias: 'Renter-occupied housing units, Margin of Error'
+        - 
+          field_name: r_c0
+          alias: 'Renter-occupied housing units, no vehicle available'
+        - 
+          field_name: r_c0_me
+          alias: 'Renter-occupied housing units, no vehicle available, Margin of Error'
+        - 
+          field_name: r_car
+          alias: 'Renter-occupied housing units, 1 or more vehicles available'
+        - 
+          field_name: r_car_me
+          alias: 'Renter-occupied housing units, 1 or more vehicles available, Margin of Error'
+        - 
+          field_name: r_c1
+          alias: 'Renter-occupied housing units, 1 vehicle available'
+        - 
+          field_name: r_c1_me
+          alias: 'Renter-occupied housing units, 1 vehicle available, Margin of Error'
+        - 
+          field_name: r_c2
+          alias: 'Renter-occupied housing units, 2 vehicles available'
+        - 
+          field_name: r_c2_me
+          alias: 'Renter-occupied housing units, 2 vehicles available, Margin of Error'
+        - 
+          field_name: r_c3pl
+          alias: 'Renter-occupied housing units, 3 or more vehicles available'
+        - 
+          field_name: r_c3pl_me
+          alias: 'Renter-occupied housing units, 3 or more vehicles available, Margin of Error'
+        - 
+          field_name: c0_p
+          alias: '% Occupied housing units, no vehicle available'
+        - 
+          field_name: c0_mep
+          alias: '% Occupied housing units, no vehicle available, Margin of Error'
+        - 
+          field_name: car_p
+          alias: '% Occupied housing units, 1 or more vehicles available'
+        - 
+          field_name: car_mep
+          alias: '% Occupied housing units, 1 or more vehicles available, Margin of Error'
+        - 
+          field_name: c1_p
+          alias: '% Occupied housing units, 1 vehicle available'
+        - 
+          field_name: c1_mep
+          alias: '% Occupied housing units, 1 vehicle available, Margin of Error'
+        - 
+          field_name: c2_p
+          alias: '% Occupied housing units, 2 vehicles available'
+        - 
+          field_name: c2_mep
+          alias: '% Occupied housing units, 2 vehicles available, Margin of Error'
+        - 
+          field_name: c3p_p
+          alias: '% Occupied housing units, 3 or more vehicles available'
+        - 
+          field_name: c3p_mep
+          alias: '% Occupied housing units, 3 or more vehicles available, Margin of Error'
+        - 
+          field_name: oo_c0_p
+          alias: '% Owner-occupied housing units, no vehicle available'
+        - 
+          field_name: oo_c0_mep
+          alias: '% Owner-occupied housing units, no vehicle available, Margin of Error'
+        - 
+          field_name: oo_car_p
+          alias: '% Owner-occupied housing units, 1 or more vehicles available'
+        - 
+          field_name: oo_car_mep
+          alias: '% Owner-occupied housing units, 1 or more vehicles available, Margin of Error'
+        - 
+          field_name: oo_c1_p
+          alias: '% Owner-occupied housing units, 1 vehicle available'
+        - 
+          field_name: oo_c1_mep
+          alias: '% Owner-occupied housing units, 1 vehicle available, Margin of Error'
+        - 
+          field_name: oo_c2_p
+          alias: '% Owner-occupied housing units, 2 vehicles available'
+        - 
+          field_name: oo_c2_mep
+          alias: '% Owner-occupied housing units, 2 vehicles available, Margin of Error'
+        - 
+          field_name: oo_c3p_p
+          alias: '% Owner-occupied housing units, 3 or more vehicles available'
+        - 
+          field_name: oo_c3p_mep
+          alias: '% Owner-occupied housing units, 3 or more vehicles available, Margin of Error'
+        - 
+          field_name: r_c0_p
+          alias: '% Renter-occupied housing units, no vehicle available'
+        - 
+          field_name: r_c0_mep
+          alias: '% Renter-occupied housing units, no vehicle available, Margin of Error'
+        - 
+          field_name: r_car_p
+          alias: '% Renter-occupied housing units, 1 or more vehicles available'
+        - 
+          field_name: r_car_mep
+          alias: '% Renter-occupied housing units, 1 or more vehicles available, Margin of Error'
+        - 
+          field_name: r_c1_p
+          alias: '% Renter-occupied housing units, 1 vehicle available'
+        - 
+          field_name: r_c1_mep
+          alias: '% Renter-occupied housing units, 1 vehicle available, Margin of Error'
+        - 
+          field_name: r_c2_p
+          alias: '% Renter-occupied housing units, 2 vehicles available'
+        - 
+          field_name: r_c2_mep
+          alias: '% Renter-occupied housing units, 2 vehicles available, Margin of Error'
+        - 
+          field_name: r_c3p_p
+          alias: '% Renter-occupied housing units, 3 or more vehicles available'
+        - 
+          field_name: r_c3p_mep
+          alias: '% Renter-occupied housing units, 3 or more vehicles available, Margin of Error'
+    -
+      name: place_of_birth_and_citizenship
+      title: PLACE OF BIRTH BY NATIVITY AND CITIZENSHIP STATUS
+      category: Demographics
+      universe: Total Population
+      table_name: b05002_citizenship_nativity_acs
+      key:
+      summary_levels:
+        tract: &ct
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        muni: &m
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest: *ct
+      roughest: *m
+      geometry_type:
+      extent:        
+      source:        
+      last_updated:
+      attributes:
+        -
+          field_name: pop
+          alias: Total population
+        -
+          field_name: pop_me
+          alias: 'Total population, Margin of Error'
+        -
+          field_name: native
+          alias: Native U.S. citizen
+        -
+          field_name: native_me
+          alias: 'Native U.S. citizen, Margin of Error'
+        -
+          field_name: fb
+          alias: Foreign born
+        -
+          field_name: fb_me
+          alias: 'Foreign born, Margin of Error'
+        -
+          field_name: natr
+          alias: Naturalized U.S. citizen
+        -
+          field_name: natr_me
+          alias: 'Naturalized U.S. citizen, Margin of Error'
+        -
+          field_name: noncitz
+          alias: Not a U.S. citizen
+        -
+          field_name: noncitz_me
+          alias: 'Not a U.S. citizen, Margin of Error'
+        -
+          field_name: native_p
+          alias: '% Native U.S. citizen'
+        -
+          field_name: native_mep
+          alias: '% Native U.S. citizen, Margin of Error'
+        -
+          field_name: fb_p
+          alias: '% Foreign born'
+        -
+          field_name: fb_mep
+          alias: '% Foreign born, Margin of Error'
+        -
+          field_name: natr_p
+          alias: '% Naturalized U.S. citizen'
+        -
+          field_name: natr_mep
+          alias: '% Naturalized U.S. citizen, Margin of Error'
+        -
+          field_name: noncitz_p
+          alias: '% Not a U.S. citizen'
+        -
+          field_name: noncitzmep
+          alias: '% Not a U.S. citizen, Margin of Error'
+    -
+      name:     mobility_in_migration
+      title:    'Geographic Mobility: In Migration'
+      category: Demographics
+      universe: Population 1 year and over in the United States
+      table_name:    b07204_geomobility_in_migration_acs
+      key:
+      summary_levels:
+        tract: &ct
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        muni: &m
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest: *ct
+      roughest: *m
+      geometry_type:
+      extent:        
+      source:        
+      last_updated:
+      attributes:
+        -
+          field_name: pop1yr
+          alias: 'Population 1 year and over in the United States'
+        -
+          field_name: pop1yr_me
+          alias: 'Population 1 year and over in the United States, MOE'
+        -
+          field_name: same
+          alias: 'Same house 1 year ago'
+        -
+          field_name: same_me
+          alias: 'Same house 1 year ago, MOE'
+        -
+          field_name: diff
+          alias: 'Different house in United States 1 year ago'
+        -
+          field_name: diff_me
+          alias: 'Different house in United States 1 year ago, MOE'
+        -
+          field_name: abroad
+          alias: 'Abroad 1 year ago'
+        -
+          field_name: abroad_me
+          alias: 'Abroad 1 year ago, MOE'
+        -
+          field_name: same_p
+          alias: '% Same house 1 year ago'
+        -
+          field_name: same_mep
+          alias: '% Same house 1 year ago, MOE'
+        -
+          field_name: diff_p
+          alias: '% Different house in United States 1 year ago'
+        -
+          field_name: diff_mep
+          alias: '% Different house in United States 1 year ago, MOE'
+        -
+          field_name: abroad_p
+          alias: '% Abroad 1 year ago'
+        -
+          field_name: abroad_mep
+          alias: '% Abroad 1 year ago, MOE'
+    -
+      name: housing_cost_burden
+      title: 'Housing Cost Burden, 5yr Avg'
+      category: Housing
+      universe: Occupied housing units
+      table_name: b25091_b25070_costburden_acs
+      key:
+      summary_levels:
+        blockgroup: &bg
+          name:   census_blockgroup
+          suffix: bg
+          key:    bg10_id
+        tract: &ct
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        muni: &m
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest: *bg
+      roughest: *m
+      geometry_type:
+      extent:        
+      source:        
+      last_updated:
+      attributes:
+        -
+          field_name: occv2
+          alias: 'Occupied housing units (less those for which housing cost burden not computed)'
+        -
+          field_name: occv2_me
+          alias: 'Occupied housing units (less those for which housing cost burden not computed), Margin of Error'
+        -
+          field_name: cb
+          alias: 'Occupied housing units paying 30% or more of income on housing'
+        -
+          field_name: cb_me
+          alias: 'Occupied housing units paying 30% or more of income on housing, Margin of Error'
+        -
+          field_name: cb_3050
+          alias: 'Occupied housing units paying 30-50% of income on housing'
+        -
+          field_name: cb_3050_me
+          alias: 'Occupied housing units paying 30-50% of income on housing, Margin of Error'
+        -
+          field_name: cb_50
+          alias: 'Occupied housing units paying 50% or more of income on housing'
+        -
+          field_name: cb_50_me
+          alias: 'Occupied housing units paying 50% or more of income on housing, Margin of Error'
+        -
+          field_name: cb_p
+          alias: '% Occupied housing units paying 30% or more of income on housing'
+        -
+          field_name: cb_mep
+          alias: '% Occupied housing units paying 30% or more of income on housing, Margin of Error'
+        -
+          field_name: cb_3050_p
+          alias: '% Occupied housing units paying 30-50% of income on housing'
+        -
+          field_name: cb_3050mep
+          alias: '% Occupied housing units paying 30-50% of income on housing, Margin of Error'
+        -
+          field_name: cb_50_p
+          alias: '% Occupied housing units paying 50% or more of income on housing'
+        -
+          field_name: cb_50_mep
+          alias: '% Occupied housing units paying 50% or more of income on housing, Margin of Error'
+        -
+          field_name: own_occ
+          alias: 'Owner-Occupied housing units'
+        -
+          field_name: own_occ_me
+          alias: 'Owner-Occupied housing units, Margin of Error'
+        -
+          field_name: ownoccv2
+          alias: 'Owner-Occupied housing units (less those for which housing cost burden not computed)'
+        -
+          field_name: ownoccv2me
+          alias: 'Owner-Occupied housing units (less those for which housing cost burden not computed), Margin of Error'
+        -
+          field_name: o_notcb
+          alias: 'Owner-Occupied housing units paying less than 30% of income on housing'
+        -
+          field_name: o_notcbme
+          alias: 'Owner-Occupied housing units paying less than 30% of income on housing, Margin fo Error'
+        -
+          field_name: o_cb
+          alias: 'Owner-Occupied housing units paying 30% or more of income on housing'
+        -
+          field_name: o_cb_me
+          alias: 'Owner-Occupied housing units paying 30% or more of income on housing, Margin of Error'
+        -
+          field_name: ocb3050
+          alias: 'Owner-Occupied housing units paying 30-50% of income on housing'
+        -
+          field_name: ocb3050me
+          alias: 'Owner-Occupied housing units paying 30-50% of income on housing, Margin of Error'
+        -
+          field_name: o_cb50
+          alias: 'Owner-Occupied housing units paying 50% or more of income on housing'
+        -
+          field_name: o_cb50me
+          alias: 'Owner-Occupied housing units paying 50% or more of income on housing, Margin of Error'
+        -
+          field_name: o_notcb_p
+          alias: '% Owner-Occupied housing units paying less than 30% of income on housing'
+        -
+          field_name: o_notcbmep
+          alias: '% Owner-Occupied housing units paying less than 30% of income on housing, Margin of Error'
+        -
+          field_name: o_cb_p
+          alias: '% Owner-Occupied housing units paying 30% or more of income on housing'
+        -
+          field_name: o_cb_mep
+          alias: '% Owner-Occupied housing units paying 50% or more of income on housing, Margin of Error'
+        -
+          field_name: ocb3050_p
+          alias: '% Owner-Occupied housing units paying 30-50% of income on housing'
+        -
+          field_name: ocb3050mep
+          alias: '% Owner-Occupied housing units paying 30-50% of income on housing, Margin of Error'
+        -
+          field_name: o_cb50_p
+          alias: '% Owner-Occupied housing units paying 50% or more of income on housing'
+        -
+          field_name: o_cb50_mep
+          alias: '% Owner-Occupied housing units paying 50% or more of income on housing, Margin of Error'
+        -
+          field_name: r_occ
+          alias: 'Renter-Occupied housing units'
+        -
+          field_name: r_occ_me
+          alias: 'Renter-Occupied housing units, Margin of Error'
+        -
+          field_name: r_occv2
+          alias: 'Renter-Occupied housing units (less those for which housing cost burden not computed)'
+        -
+          field_name: r_occv2_me
+          alias: 'Renter-Occupied housing units (less those for which housing cost burden not computed), Margin of Error'
+        -
+          field_name: r_notcb
+          alias: 'Renter-Occupied housing units paying less than 30% of income on housing'
+        -
+          field_name: r_notcbme
+          alias: 'Renter-Occupied housing units paying less than 30% of income on housing, Margin fo Error'
+        -
+          field_name: r_cb
+          alias: 'Renter-Occupied housing units paying 30% or more of income on housing'
+        -
+          field_name: r_cb_me
+          alias: 'Renter-Occupied housing units paying 30% or more of income on housing, Margin fo Error'
+        -
+          field_name: rcb3050
+          alias: 'Renter-Occupied housing units paying 30-50% of income on housing'
+        -
+          field_name: rcb3050me
+          alias: 'Renter-Occupied housing units paying 30-50% of income on housing, Margin of Error'
+        -
+          field_name: r_cb50
+          alias: 'Renter-Occupied housing units paying 50% or more of income on housing'
+        -
+          field_name: r_cb50me
+          alias: 'Renter-Occupied housing units paying 50% or more of income on housing, Margin of Error'
+        -
+          field_name: r_notcb_p
+          alias: '% Renter-Occupied housing units paying less than 30% of income on housing'
+        -
+          field_name: r_notcbmep
+          alias: '% Renter-Occupied housing units paying less than 30% of income on housing, Margin of Error'
+        -
+          field_name: r_cb_p
+          alias: '% Renter-Occupied housing units paying 30% or more of income on housing'
+        -
+          field_name: r_cb_mep
+          alias: '% Renter-Occupied housing units paying 30% or more of income on housing, Margin of Error'
+        -
+          field_name: rcb3050_p
+          alias: '% Renter-Occupied housing units paying 30-50% of income on housing'
+        -
+          field_name: rcb3050mep
+          alias: '% Renter-Occupied housing units paying 30-50% of income on housing,  Margin of Error'
+        -
+          field_name: r_cb50_p
+          alias: '% Renter-Occupied housing units paying 50% or more of income on housing'
+        -
+          field_name: r_cb50_mep
+          alias: '% Renter-Occupied housing units paying 50% or more of income on housing, Margin of Error'
+
+    -
+      name:   population_by_age
+      title: 'Population by Age, 2010'
+      category: Demographics
+      universe: Total Population
+      table_name: census2010_p12_pop_by_age
+      key:
+      summary_levels:
+        blockgroup: &bg
+          name:   census_blockgroup
+          suffix: bg
+          key:    bg10_id
+        tract: &ct
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        muni: &m
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest: *bg
+      roughest: *m
+      geometry_type:
+      extent:        
+      source:        
+      last_updated: 
+      attributes: 
+          -
+            field_name: totpop
+            alias: 'Total Population'
+          -
+            field_name: pop_u18
+            alias: 'Population under 18 years'
+          -
+            field_name: pop18_24
+            alias: 'Population 18 - 24 years'
+          -
+            field_name: pop25_34
+            alias: 'Population 25 - 34 years'
+          -
+            field_name: pop35_64
+            alias: 'Population 35 - 64 years'
+          -
+            field_name: pop25_64
+            alias: 'Population 25 - 64 years'
+          -
+            field_name: pop65o
+            alias: 'Population 65 years and over'
+          -
+            field_name: pop_u5
+            alias: 'Population under 5 years'
+          -
+            field_name: pop5_9
+            alias: 'Population 5 - 9 years'
+          -
+            field_name: pop10_14
+            alias: 'Population 10 - 14 years'
+          -
+            field_name: pop15_17
+            alias: 'Population 15 - 17 years'
+          -
+            field_name: pop18_19
+            alias: 'Population 18 - 19 years'
+          -
+            field_name: pop20
+            alias: 'Population 20 years'
+          -
+            field_name: pop21
+            alias: 'Population 21 years'
+          -
+            field_name: pop22_24
+            alias: 'Population 22 - 24 years'
+          -
+            field_name: pop25_29
+            alias: 'Population 25 - 29 years'
+          -
+            field_name: pop30_34
+            alias: 'Population 30 - 34 years'
+          -
+            field_name: pop35_39
+            alias: 'Population 35 - 39 years'
+          -
+            field_name: pop40_44
+            alias: 'Population 40 - 44 years'
+          -
+            field_name: pop45_49
+            alias: 'Population 45 - 49 years'
+          -
+            field_name: pop50_54
+            alias: 'Population 50 - 54 years'
+          -
+            field_name: pop55_59
+            alias: 'Population 55 - 59 years'
+          -
+            field_name: pop60_61
+            alias: 'Population 60 - 61 years'
+          -
+            field_name: pop62_64
+            alias: 'Population 62 - 64 years'
+          -
+            field_name: pop65_66
+            alias: 'Population 65 - 66 years'
+          -
+            field_name: pop67_69
+            alias: 'Population 67 - 69 years'
+          -
+            field_name: pop70_74
+            alias: 'Population 70 - 74 years'
+          -
+            field_name: pop75_79
+            alias: 'Population 75 - 79 years'
+          -
+            field_name: pop80_84
+            alias: 'Population 80 - 84 years'
+          -
+            field_name: pop85o
+            alias: 'Population 85 years and over'
+          -
+            field_name: pop_u18_p
+            alias: '% Population under 18 years'
+          -
+            field_name: pop18_24_p
+            alias: '% Population 18 - 24 years'
+          -
+            field_name: pop25_34_p
+            alias: '% Population 25 - 34 years'
+          -
+            field_name: pop35_64_p
+            alias: '% Population 35 - 64 years'
+          -
+            field_name: pop25_64_p
+            alias: '% Population 25 - 64 years'
+          -
+            field_name: pop65o_p
+            alias: '% Population 65 years and over'
+          -
+            field_name: pop_u5_p
+            alias: '% Population under 5 years'
+          -
+            field_name: pop5_9_p
+            alias: '% Population 5 - 9 years'
+          -
+            field_name: pop10_14_p
+            alias: '% Population 10 - 14 years'
+          -
+            field_name: pop15_17_p
+            alias: '% Population 15 - 17 years'
+          -
+            field_name: pop18_19_p
+            alias: '% Population 18 - 19 years'
+          -
+            field_name: pop20_p
+            alias: '% Population 20 years'
+          -
+            field_name: pop21_p
+            alias: '% Population 21 years'
+          -
+            field_name: pop22_24_p
+            alias: '% Population 22 - 24 years'
+          -
+            field_name: pop25_29_p
+            alias: '% Population 25 - 29 years'
+          -
+            field_name: pop30_34_p
+            alias: '% Population 30 - 34 years'
+          -
+            field_name: pop35_39_p
+            alias: '% Population 35 - 39 years'
+          -
+            field_name: pop40_44_p
+            alias: '% Population 40 - 44 years'
+          -
+            field_name: pop45_49_p
+            alias: '% Population 45 - 49 years'
+          -
+            field_name: pop50_54_p
+            alias: '% Population 50 - 54 years'
+          -
+            field_name: pop55_59_p
+            alias: '% Population 55 - 59 years'
+          -
+            field_name: pop60_61_p
+            alias: '% Population 60 - 61 years'
+          -
+            field_name: pop62_64_p
+            alias: '% Population 62 - 64 years'
+          -
+            field_name: pop65_66_p
+            alias: '% Population 65 - 66 years'
+          -
+            field_name: pop67_69_p
+            alias: '% Population 67 - 69 years'
+          -
+            field_name: pop70_74_p
+            alias: '% Population 70 - 74 years'
+          -
+            field_name: pop75_79_p
+            alias: '% Population 75 - 79 years'
+          -
+            field_name: pop80_84_p
+            alias: '% Population 80 - 84 years'
+          -
+            field_name: pop85o_p
+            alias: '% Population 85 years and over'
+    -
+      name:   population_by_race
+      title: 'Population by Race, 2010'
+      category: Demographics
+      universe: 'Total Population'
+      table_name: census2010_p5_race
+      key:
+      summary_levels:
+        blockgroup: &bg
+          name:   census_blockgroup
+          suffix: bg
+          key:    bg10_id
+        tract: &ct
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        muni: &m
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest: *bg
+      roughest: *m
+      geometry_type:
+      extent:        
+      source:        
+      last_updated: 
+      attributes:
+        -
+          field_name: totpop
+          alias: 'Total Population'
+        -
+          field_name: nhwhi
+          alias: 'White alone, Non-Hispanic or Latino'
+        -
+          field_name: nhaa
+          alias: 'Black or African American alone, Non-Hispanic or Latino'
+        -
+          field_name: nhna
+          alias: 'American Indian and Alaska Native alone, Non-Hispanic or Latino'
+        -
+          field_name: nhas
+          alias: 'Asian alone, Non-Hispanic or Latino'
+        -
+          field_name: nhpi
+          alias: 'Native Hawaiian and Other Pacific Islander alone, Non-Hispanic or Latino'
+        -
+          field_name: nhoth
+          alias: 'Some Other Race alone, Non-Hispanic or Latino'
+        -
+          field_name: nhmult
+          alias: 'Two or More Races, Non-Hispanic or Latino'
+        -
+          field_name: lat
+          alias: 'Hispanic or Latino'
+        -
+          field_name: nhwhi_p
+          alias: '% White alone, Non-Hispanic or Latino'
+        -
+          field_name: nhaa_p
+          alias: '% Black or African American alone, Non-Hispanic or Latino'
+        -
+          field_name: nhna_p
+          alias: '% American Indian and Alaska Native alone, Non-Hispanic or Latino'
+        -
+          field_name: nhas_p
+          alias: '% Asian alone, Non-Hispanic or Latino'
+        -
+          field_name: nhpi_p
+          alias: '% Native Hawaiian and Other Pacific Islander alone, Non-Hispanic or Latino'
+        -
+          field_name: nhoth_p
+          alias: '% Some Other Race alone, Non-Hispanic or Latino'
+        -
+          field_name: nhmult_p
+          alias: '% Two or More Races, Non-Hispanic or Latino'
+        -
+          field_name: lat_p
+          alias: '% Hispanic or Latino'
+    -
+      name: enrollment_by_year
+      title: 'Schools Enrollment by Year'
+      category: Education
+      universe: 'Schools'
+      table_name: educ_enrollment_2012_13
+      key:
+      summary_levels:
+        school: &s
+          name: school
+          suffix: schools
+          key: schid
+        school_district: &sd
+          name: school_district
+          suffix: school_districts
+          key: districtid
+      finest:   *s
+      roughest: *sd
+      geometry_type: 
+      extent:
+      source:
+      last_updated:
+      attributes:
+        -
+          field_name: schid
+          alias: 'School ID'
+        -
+          field_name: name
+          alias: 'School Name'
+        -
+          field_name: municipal
+          alias: 'Municipality'
+        -
+          field_name: schoolyear
+          alias: 'School year'
+        -
+          field_name: total
+          alias: 'Total Enrollment'
+        -
+          field_name: grade_pk
+          alias: 'Enrollment in Pre-Kindergarden'
+        -
+          field_name: grade_k
+          alias: 'Enrollment in Kindergarden'
+        -
+          field_name: grade_1
+          alias: 'Enrollment in Grade 1'
+        -
+          field_name: grade_2
+          alias: 'Enrollment in Grade 2'
+        -
+          field_name: grade_3
+          alias: 'Enrollment in Grade 3'
+        -
+          field_name: grade_4
+          alias: 'Enrollment in Grade 4'
+        -
+          field_name: grade_5
+          alias: 'Enrollment in Grade 5'
+        -
+          field_name: grade_6
+          alias: 'Enrollment in Grade 6'
+        -
+          field_name: grade_7
+          alias: 'Enrollment in Grade 7'
+        -
+          field_name: grade_8
+          alias: 'Enrollment in Grade 8'
+        -
+          field_name: grade_9
+          alias: 'Enrollment in Grade 9'
+        -
+          field_name: grade_10
+          alias: 'Enrollment in Grade 10'
+        -
+          field_name: grade_11
+          alias: 'Enrollment in Grade 11'
+        -
+          field_name: grade_12
+          alias: 'Enrollment in Grade 12'
+        -
+          field_name: grade_sp
+          alias: 'Enrollment in Special Education'
+        -
+          field_name: aa_pct
+          alias: '% African American or Black Enrollment'
+        -
+          field_name: as_pct
+          alias: '% Asian Enrollment'
+        -
+          field_name: lat_pct
+          alias: '% Hispanic or Latino Enrollment'
+        -
+          field_name: whi_pct
+          alias: '% White Enrollment'
+        -
+          field_name: na_pct
+          alias: '% Native American Enrollment'
+        -
+          field_name: pi_pct
+          alias: '% Native Hawaiian or Other Pacific Islander Enrollment'
+        -
+          field_name: mult_pct
+          alias: '% Multi-race, Non-Hispanic Enrollment'
+        -
+          field_name: male_pct
+          alias: '% Male Enrollment'
+        -
+          field_name: fem_pct
+          alias: '% Female Enrollment'
+        -
+          field_name: ell_num
+          alias: 'Limited English Proficient Enrollment'
+        -
+          field_name: ell_pct
+          alias: '% Limited English Proficient Enrollment'
+        -
+          field_name: lep_num
+          alias: 'First Language not English Enrollment'
+        -
+          field_name: lep_pct
+          alias: '% First Language not English Enrollment'
+        -
+          field_name: swd_num
+          alias: 'Students with Disabilites Enrollment'
+        -
+          field_name: swd_pct
+          alias: '% Students with Disabilites Enrollment'
+        -
+          field_name: li_num
+          alias: 'Low-income Enrollment'
+        -
+          field_name: li_pct
+          alias: '% Low-income Enrollment'
+        -
+          field_name: free_num
+          alias: 'Students Eligible for Free Lunch Enrollment'
+        -
+          field_name: free_pct
+          alias: '% Students Eligible for Free Lunch Enrollment'
+        -
+          field_name: red_num
+          alias: 'Students Eligible for Reduced Price Lunch Enrollment'
+        -
+          field_name: red_pct
+          alias: '% Students Eligible for Reduced Price Lunch Enrollment'
+    -
+      name: housing_tenure
+      title: 'Housing Tenure by Unit Type'
+      category: Housing
+      universe: 'Occupied housing units'
+      table_name: b25032_hu_tenure_by_units_acs
+      key:
+      summary_levels:
+        blockgroup: &bg
+          name:   census_blockgroup
+          suffix: bg
+          key:    bg10_id
+        tract: &ct
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        muni: &m
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest: *bg
+      roughest: *m
+      geometry_type: 
+      extent:
+      source:
+      last_updated:
+      attributes:
+        -
+          field_name: acs_year
+          alias: 'ACS Years'
+        -
+          field_name: occ_hu
+          alias: 'Occupied housing units'
+        -
+          field_name: occ_hu_me
+          alias: 'Occupied housing units, margin of error'
+        -
+          field_name: sf
+          alias: 'Single Family occupied housing units'
+        -
+          field_name: sf_me
+          alias: 'Single Family occupied housing units, margin of error'
+        -
+          field_name: mf
+          alias: 'Multi-Family occupied housing units'
+        -
+          field_name: mf_me
+          alias: 'Multi-Family occupied housing units, margin of error'
+        -
+          field_name: oth
+          alias: 'Other occupied housing units'
+        -
+          field_name: oth_me
+          alias: 'Other-occupied housing units, margin of error'
+        -
+          field_name: o_hu
+          alias: 'Owner-occupied housing units'
+        -
+          field_name: o_hu_me
+          alias: 'Owner-occupied housing units, margin of error'
+        -
+          field_name: o_sf
+          alias: 'Single Family Owner-occupied housing units'
+        -
+          field_name: o_sf_me
+          alias: 'Single Family Owner-occupied housing units, margin of error'
+        -
+          field_name: o_mf
+          alias: 'Multi-Family Owner-occupied housing units'
+        -
+          field_name: o_mf_me
+          alias: 'Multi-Family Owner-occupied housing units, margin of error'
+        -
+          field_name: o_oth
+          alias: 'Other Owner-occupied housing units'
+        -
+          field_name: o_oth_me
+          alias: 'Other-Owner-occupied housing units, margin of error'
+        -
+          field_name: r_hu
+          alias: 'Renter-occupied housing units'
+        -
+          field_name: r_hu_me
+          alias: 'Renter-occupied housing units, margin of error'
+        -
+          field_name: r_sf
+          alias: 'Single Family Renter-occupied housing units'
+        -
+          field_name: r_sf_me
+          alias: 'Single Family Renter-occupied housing units, margin of error'
+        -
+          field_name: r_mf
+          alias: 'Multi-Family Renter-occupied housing units'
+        -
+          field_name: r_mf_me
+          alias: 'Multi-Family Renter-occupied housing units, margin of error'
+        -
+          field_name: r_oth
+          alias: 'Other Renter-occupied housing units'
+        -
+          field_name: r_oth_me
+          alias: 'Other-Renter-occupied housing units, margin of error'
+        -
+          field_name: sf_p
+          alias: '% Single Family occupied housing units'
+        -
+          field_name: sf_mep
+          alias: '% Single Family occupied housing units, margin of error'
+        -
+          field_name: mf_p
+          alias: '% Multi-Family occupied housing units'
+        -
+          field_name: mf_mep
+          alias: '% Multi-Family occupied housing units, margin of error'
+        -
+          field_name: oth_p
+          alias: '% Other occupied housing units'
+        -
+          field_name: oth_mep
+          alias: '% Other-occupied housing units, margin of error'
+    -
+      name: rent
+      title: 'Gross Rent'
+      category: Housing
+      universe: 'Renter-occupied housing units'
+      table_name: b25063_b25064_gross_rent_acs
+      key:
+      summary_levels:
+        blockgroup: &bg
+          name:   census_blockgroup
+          suffix: bg
+          key:    bg10_id
+        tract: &ct
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        muni: &m
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest: *bg
+      roughest: *m
+      geometry_type: 
+      extent:
+      source:
+      last_updated:
+      attributes:
+        -
+          field_name: acs_year
+          alias: 'ACS Years'
+        -
+          field_name: r_occ
+          alias: 'Renter-occupied housing units'
+        -
+          field_name: r_occ_me
+          alias: 'Renter-occupied housing units, margin of error'
+        -
+          field_name: med_c_r
+          alias: 'Median rent for Renter-occupied housing units'
+        -
+          field_name: med_c_r_me
+          alias: 'Median rent for Renter-occupied housing units, margin of error'
+        -
+          field_name: cashrnt
+          alias: 'Paying cash Rent'
+        -
+          field_name: cashrntme
+          alias: 'Paying cash Rent, margin of error'
+        -
+          field_name: r_500
+          alias: 'Less than $500 Rent'
+        -
+          field_name: r_500_me
+          alias: 'Less than $500 Rent, margin of error'
+        -
+          field_name: r5001000
+          alias: '$500 - $999 Rent'
+        -
+          field_name: r5001000m
+          alias: '$500 - $999 Rent, margin of error'
+        -
+          field_name: r10001500
+          alias: '$1000 - $1499 Rent'
+        -
+          field_name: r10001500m
+          alias: '$1000 - $1499 Rent, margin of error'
+        -
+          field_name: r15002000
+          alias: '$1500 - $1999 Rent'
+        -
+          field_name: r15002000m
+          alias: '$1500 - $1999 Rent, margin of error'
+        -
+          field_name: r2000
+          alias: '$2,000 or more for Rent'
+    -
+      name: linguistic_isolation
+      title: 'Linguistic Isolation by household'
+      category: Demographics
+      universe: 'Households'
+      table_name: b16002_hh_linguistic_isolation_acs
+      key:
+      summary_levels:
+        blockgroup: &bg
+          name:   census_blockgroup
+          suffix: bg
+          key:    bg10_id
+        tract: &ct
+          name:   census_tract
+          suffix: ct
+          key:    ct10_id
+        muni: &m
+          name:   municipality
+          suffix: m
+          key:    muni_id
+      finest: *bg
+      roughest: *m
+      geometry_type: 
+      extent:
+      source:
+      last_updated:
+      attributes:
+        -
+          field_name: acs_year
+          alias: 'ACS Years'
+        -
+          field_name: hh
+          alias: 'Households'
+        -
+          field_name: hh_me
+          alias: 'Households'
+        -
+          field_name: eng
+          alias: 'English Speaking Households'
+        -
+          field_name: eng_me
+          alias: 'English Speaking Households, margin of error'
+        -
+          field_name: noeng
+          alias: 'Non-English Speaking Households'
+        -
+          field_name: noeng_me
+          alias: 'Non-English Speaking Households, margin of error'
+        -
+          field_name: li
+          alias: 'Linguistically Isolated Households'
+        -
+          field_name: li_me
+          alias: 'Linguistically Isolated Households, margin of error'
+        -
+          field_name: spa_hh
+          alias: 'Spanish Speaking Households'
+        -
+          field_name: spa_hh_me
+          alias: 'Spanish Speaking Households, margin of error'
+        -
+          field_name: spa_li
+          alias: 'Spanish Speaking Households that are Linguistically Isolated'
+        -
+          field_name: spa_li_me
+          alias: 'Spanish Speaking Households that are Linguistically Isolated, margin of error'
+        -
+          field_name: spa_nli
+          alias: 'Spanish Speaking Households that are Not Linguistically Isolated'
