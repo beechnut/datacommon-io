@@ -8,7 +8,7 @@
       title:      'Means of Transportation to Work by Residence'
       category:    Transportation
       universe:   'Workers 16 years and over'
-      table_name: 'b08301_means_transportation_to_work_by_residence_acs'
+      table_name: b08301_means_transportation_to_work_by_residence_acs
       key:         gid
       summary_levels:
         - 
@@ -137,7 +137,7 @@
       title:      'Poverty by Household Type'
       category:    Economy 
       universe:   
-      table_name: 'b17017_poverty_by_hh_type_acs'
+      table_name: b17017_poverty_by_hh_type_acs
       key:         
       summary_levels:
         - 
@@ -565,7 +565,7 @@
       title:      'Unemployment 2012'
       category:    Economy
       universe:   
-      table_name: 'econ_unemployment_2012'
+      table_name: econ_unemployment_2012
       key:         
       summary_levels:
         - &m
@@ -600,7 +600,7 @@
       title:      'Vehicles Per Household'
       category:    Transportation
       universe:   
-      table_name: 'b25044_hu_vehicles_acs'
+      table_name: b25044_hu_vehicles_acs
       key:         
       summary_levels:
         blockgroup: &bg

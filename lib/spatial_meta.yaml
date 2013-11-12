@@ -6,7 +6,7 @@
     - 
       name:          bicycle_and_pedestrian_facilities
       title:         Bicycle and Pedestrian Facilities
-      table_name:    bikeped_facilities     
+      table_name:    bikeped_facilities
       key:           gid
       summary_level: 
       geometry_type: Point
@@ -26,7 +26,7 @@
     - 
       name:          community_health_centers
       title:         Community Health Centers
-      table_name:    chc_pts     
+      table_name:    chc_pts
       key:           chc_id
       summary_level: 
       geometry_type: Point
@@ -70,7 +70,7 @@
     -    
       name:          hospitals
       title:         Hospitals
-      table_name:    hospital_pts     
+      table_name:    hospital_pts
       key:           hosp_id
       summary_level: 
       geometry_type: Point
@@ -92,7 +92,7 @@
     -    
       name:          libraries
       title:         Libraries
-      table_name:    library_pts     
+      table_name:    library_pts
       key:           LibraryID
       summary_level: 
       geometry_type: 
@@ -103,7 +103,7 @@
     -    
       name:          ma_census_tracts_2000
       title:         Census 2000 Tracts
-      table_name:    ma_census2000_tracts     
+      table_name:    ma_census2000_tracts
       key:           CT_ID
       summary_level: census_tract
       geometry_type: Polygon
