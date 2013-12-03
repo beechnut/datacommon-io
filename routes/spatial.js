@@ -15,7 +15,7 @@ var util = require('util');
 
 var makeGeoJSONQueryString = function(schema_name, table, callback) { 
   query = 'SELECT ' + table.key + ' AS key, ST_AsGeoJSON('
-  query = query + 'ST_Transform(the_geom, 4326)) AS geojson FROM '
+  query = query + 'ST_Transform(ST_Simplify(the_geom, 50), 4326)) AS geojson FROM '
   query = query + schema_name + '.' + table.table_name + ";";
   console.log(query);
   if(callback) callback(query);
@@ -42,10 +42,10 @@ var makeIntersectQueryString = function(schema_name, table, posted_geojson, call
 
 var overlap_query = function (callback){
 
-  var query = "SELECT ST_AsGeoJSON(g.the_geom) as geojson"
+  var query = "SELECT ST_AsGeoJSON(ST_Transform(g.the_geom, 4326)) as geojson"
             + " FROM gisdata.ma_census2010_tracts g,"
-              + " ST_SetSRID(ST_GeomFromGeoJSON('{\"type\":\"Polygon\",\"coordinates\":[[[-71.41937255859375,41.98195261665715],[-71.41937255859375,42.70060440808085],[-70.88104248046875,42.70060440808085],[-70.88104248046875,41.98195261665715],[-71.41937255859375,41.98195261665715]]]}}'), 4326) gj"
-            + " WHERE ST_Overlaps(ST_Transform(g.the_geom, 4326), gj) IS TRUE;"
+              + " ST_SetSRID(ST_GeomFromGeoJSON('{\"type\":\"Polygon\",\"coordinates\":[[[-71.42,41.99],[-71.42,42.71],[-70.88,42.70],[-70.88,41.98],[-71.42,41.99]]]}}'), 4326) gj"
+            + " WHERE ST_Intersects(ST_Transform(g.the_geom, 4326), gj);"
 
   if(callback) callback(query);
 }
