@@ -11,26 +11,23 @@
       table_name: b08301_means_transportation_to_work_by_residence_acs
       key:         gid
       summary_levels:
-        - 
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        - 
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        - 
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
-      finest:
-        name:   census_blockgroup
-        key:    bg10_id
-        suffix: bg
-      roughest:
-        name:   municipality
-        key:    muni_id
-        suffix: m
+      finest: *bg
+      roughest: *m
       geometry_type: Point
       extent:        
       source:        
@@ -140,26 +137,23 @@
       table_name: b17017_poverty_by_hh_type_acs
       key:         
       summary_levels:
-        - 
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        - 
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        - 
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
-      finest:
-        name:   census_blockgroup
-        suffix: bg
-        key:    bg10_id
-      roughest:
-        name:   municipality
-        suffix: m
-        key:    muni_id
+      finest: *bg
+      roughest: *m
       geometry_type: MultiPolygon
       extent:        
       source:        
@@ -323,26 +317,23 @@
       table_name:  b15002_educational_attainment_acs
       key:         
       summary_levels:
-        - 
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        - 
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        - 
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
-      finest:
-        name:   census_blockgroup
-        suffix: bg
-        key:    bg10_id
-      roughest:
-        name:   municipality
-        suffix: m
-        key:    muni_id
+      finest:   *bg
+      roughest: *m
       geometry_type: 
       extent:        
       source:        
@@ -448,15 +439,18 @@
       table_name:     b08303_traveltime_to_work_by_residence_acs
       key:
       summary_levels:
-        blockgroup: &bg
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        tract: &ct
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        muni: &m
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
@@ -569,6 +563,7 @@
       key:         
       summary_levels:
         - &m
+          title:  Municipality
           name:   municipality
           suffix: 
           key:    muni_id
@@ -603,15 +598,18 @@
       table_name: b25044_hu_vehicles_acs
       key:         
       summary_levels:
-        blockgroup: &bg
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        tract: &ct
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        muni: &m
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
@@ -831,11 +829,12 @@
       table_name: b05002_citizenship_nativity_acs
       key:
       summary_levels:
-        tract: &ct
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        muni: &m
+        - &m
           name:   municipality
           suffix: m
           key:    muni_id
@@ -908,11 +907,13 @@
       table_name:    b07204_geomobility_in_migration_acs
       key:
       summary_levels:
-        tract: &ct
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        muni: &m
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
@@ -973,15 +974,18 @@
       table_name: b25091_b25070_costburden_acs
       key:
       summary_levels:
-        blockgroup: &bg
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        tract: &ct
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        muni: &m
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
@@ -1163,15 +1167,18 @@
       table_name: census2010_p12_pop_by_age
       key:
       summary_levels:
-        blockgroup: &bg
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        tract: &ct
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        muni: &m
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
@@ -1367,15 +1374,18 @@
       table_name: census2010_p5_race
       key:
       summary_levels:
-        blockgroup: &bg
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        tract: &ct
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        muni: &m
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
@@ -1445,11 +1455,13 @@
       table_name: educ_enrollment_2012_13
       key:
       summary_levels:
-        school: &s
-          name: school
+        - &s
+          title: School
+          name:  school
           suffix: schools
           key: schid
-        school_district: &sd
+        - &sd
+          title: School District
           name: school_district
           suffix: school_districts
           key: districtid
@@ -1473,7 +1485,7 @@
           field_name: schoolyear
           alias: 'School year'
         -
-          field_name: total
+          field_name: enrolled
           alias: 'Total Enrollment'
         -
           field_name: grade_pk
@@ -1591,15 +1603,18 @@
       table_name: b25032_hu_tenure_by_units_acs
       key:
       summary_levels:
-        blockgroup: &bg
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        tract: &ct
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        muni: &m
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
@@ -1711,15 +1726,18 @@
       table_name: b25063_b25064_gross_rent_acs
       key:
       summary_levels:
-        blockgroup: &bg
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        tract: &ct
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        muni: &m
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id
@@ -1786,15 +1804,18 @@
       table_name: b16002_hh_linguistic_isolation_acs
       key:
       summary_levels:
-        blockgroup: &bg
+        - &bg
+          title:  Census Blockgroup
           name:   census_blockgroup
           suffix: bg
           key:    bg10_id
-        tract: &ct
+        - &ct
+          title:  Census Tract
           name:   census_tract
           suffix: ct
           key:    ct10_id
-        muni: &m
+        - &m
+          title:  Municipality
           name:   municipality
           suffix: m
           key:    muni_id

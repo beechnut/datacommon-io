@@ -14,15 +14,6 @@
       source:        
       last_updated:
       attributes:
-        - 
-          field_name: fieldnm
-          alias:      Humans can read this field name
-        - 
-          field_name: fieldnm
-          alias:      Humans can read this field name
-        - 
-          field_name: fieldnm
-          alias:      Humans can read this field name
     - 
       name:          community_health_centers
       title:         Community Health Centers
@@ -110,24 +101,50 @@
       extent:        MA
       source:        
       last_updated:
-      attributes:  
+      attributes:    
     - 
-      name:          ma_census_tracts
+      name:          census_block
+      title:         Census 2010 Blocks
+      table_name:    census2010_blocks
+      key:           blk10_id
+      summary_level: census_block
+      suffix:        b
+      geometry_type: Polygon
+      extent:        MA
+      source:        
+      last_updated:  
+      attributes:    
+    - 
+      name:          census_blockgroup
+      title:         Census 2010 Blockgroups
+      table_name:    census2010_blockgroups
+      key:           bg10_id     
+      summary_level: census_blockgroup
+      suffix:        bg
+      geometry_type: Polygon
+      extent:        MA
+      source:        
+      last_updated:  
+      attributes:    
+    - 
+      name:          census_tract
       title:         Census 2010 Tracts
       table_name:    ma_census2010_tracts
       key:           ct10_id     
       summary_level: census_tract
+      suffix:        ct
       geometry_type: Polygon
       extent:        MA
       source:        
-      last_updated:
-      attributes:  
+      last_updated:  
+      attributes:    
     - 
-      name:          ma_municipalities
+      name:          municipality
       title:         Massachusetts Municipalities
       table_name:    ma_municipal
       key:           MUNI_ID
       summary_level: municipality
+      suffix:        m
       geometry_type: Polygon
       extent:        MA
       source:
@@ -255,10 +272,11 @@
       last_updated:
       attributes:  
     - 
-      name:          school_districts
+      name:          school_district
       title:         School Districts
       table_name:    school_districts
       key:           districtid
+      suffix:        school_districts
       summary_level: 
       geometry_type: Polygon
       extent:        MA
@@ -270,6 +288,7 @@
       title:         Schools
       table_name:    school_pts
       key:           schid
+      suffix:        schools
       summary_level: 
       geometry_type: Point
       extent:        MA

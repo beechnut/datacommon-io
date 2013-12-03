@@ -87,7 +87,7 @@ exports.intersect = function(request, response) {
   var t_table   = shared.getTable('tabular', t_dataset);
 
   var key    = s_table.key;
-  var suffix = s_table.key.slice(0,2); // TODO: do this better
+  var suffix = s_table.suffix; // TODO: do this better
 
   var fields  = "a.*"
 
