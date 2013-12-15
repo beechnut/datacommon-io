@@ -88,10 +88,43 @@ exports.rightSuffix = function (suffix) {
 }
 
 
+exports.getKey = function (summary_level) {
+  console.log('#get')
+  switch(summary_level){
+    case 'municipality':
+      return 'muni_id'
+      break
+    case 'census_blockgroup':
+      return 'bg10_id'
+      break
+    case 'census_tract':
+      return 'ct10_id'
+      break
+  }
+}
+
+exports.rightSuffixFromObject = function (table, summary_level) {
+  if (typeof table === 'string') { exports.getTable('tabular', table) }
+  
+  var match
+
+  _.each(table.summary_levels, function (level) {
+    console.log(level.name + ' == ' + summary_level)
+    if (level.name === summary_level) { 
+      console.log('match')
+      match = exports.rightSuffix( level.suffix ) }
+  })
+  return match
+}
+
+
 
 exports.find = function (needle, haystack, value){
   for(t=0; t < haystack.length; t++){
-    if(eval('haystack[t][value]') === needle) return(haystack[t]);
+    if(eval('haystack[t][value]') === needle){
+      console.log(haystack[t], needle)
+      return(haystack[t]);
+    } 
   }
 }
 

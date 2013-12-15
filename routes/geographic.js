@@ -19,17 +19,30 @@ var makeQuery = function(s_schema_name, t_schema_name, s_table, t_table, fields,
 
 var makeIntersectQuery = function(s_schema_name, t_schema_name, s_table, t_table, fields, suffix, key, geojson, callback){
 
-  var query = "SELECT subquery.* FROM ("
-  + "SELECT "+ fields +", ST_AsGeoJSON("
-    + "ST_Intersection("
-      + "ST_SetSRID(ST_GeomFromGeoJSON('"+ JSON.stringify(geojson, shared.floatOnOkay) +"'), 4326),"
-      + "ST_Transform(g.the_geom, 4326)"
-    + ")"
-  + ") AS geojson"
-  + " FROM "+ s_schema_name +"."+ s_table.table_name +" g"
-  + " JOIN "+ t_schema_name +"."+ t_table.table_name + shared.rightSuffix(suffix) + " a"
-  + " ON g."+ key +" = a."+ key +" ) AS subquery"
-  + " WHERE geojson <> '{\"type\":\"GeometryCollection\",\"geometries\":[]}';"
+  // var query = "SELECT subquery.* FROM ("
+  // + "SELECT "+ fields +", ST_AsGeoJSON("
+  //   + "ST_Intersection("
+  //     + "ST_SetSRID(ST_GeomFromGeoJSON('"+ JSON.stringify(geojson, shared.floatOnOkay) +"'), 4326),"
+  //     + "ST_Transform(g.the_geom, 4326)"
+  //   + ")"
+  // + ") AS geojson"
+  // + " FROM "+ s_schema_name +"."+ s_table.table_name +" g"
+  // + " JOIN "+ t_schema_name +"."+ t_table.table_name + shared.rightSuffix(suffix) + " a"
+  // + " ON g."+ key +" = a."+ key +" ) AS subquery"
+  // + " WHERE geojson <> '{\"type\":\"GeometryCollection\",\"geometries\":[]}';"
+
+  var query = "SELECT subquery.* FROM("
+            +   "SELECT "+ fields +","
+            +   "ST_AsGeoJSON(ST_Transform(g.the_geom, 4326)) AS geojson"
+            +   " FROM "+ s_schema_name +"."+ s_table.table_name +" g"
+            +   " JOIN "+ t_schema_name +"."+ t_table.table_name + shared.rightSuffix(suffix) +" a"
+            +   " ON g."+ key +" = a."+ key
+            +   " WHERE ST_Intersects("
+            +     "ST_SetSRID("
+            +       "ST_GeomFromGeoJSON('"+ JSON.stringify(geojson, shared.floatOnOkay) +"')"
+            +       ", 4326)"
+            +   ", ST_Transform(ST_Simplify(g.the_geom, 50), 4326))) AS subquery"
+            + " WHERE geojson <> '{\"type\":\"GeometryCollection\",\"geometries\":[]}';"
 
   console.log(query);
   if (callback) callback(query);
@@ -82,7 +95,7 @@ exports.intersect = function(request, response) {
   }
   console.log(request.method, posted_geojson);
 
-  
+  console.log(s_dataset)
   var s_table   = shared.getTable('spatial', s_dataset);
   var t_table   = shared.getTable('tabular', t_dataset);
 

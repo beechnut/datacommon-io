@@ -565,7 +565,7 @@
         - &m
           title:  Municipality
           name:   municipality
-          suffix: 
+          suffix: m
           key:    muni_id
       finest: *m
       roughest: *m
@@ -1718,6 +1718,54 @@
         -
           field_name: oth_mep
           alias: '% Other-occupied housing units, margin of error'
+        -
+          field_name: o_hu_p
+          alias: '% Owner-occupied housing units'
+        -
+          field_name: o_hu_mep
+          alias: '% Owner-occupied housing units, margin of error'
+        -
+          field_name: o_sf_p
+          alias: '% Single Family Owner-occupied housing units'
+        -
+          field_name: o_sf_mep
+          alias: '% Single Family Owner-occupied housing units, margin of error'
+        -
+          field_name: o_mf_p
+          alias: '% Multi-Family Owner-occupied housing units'
+        -
+          field_name: o_mf_mep
+          alias: '% Multi-Family Owner-occupied housing units, margin of error'
+        -
+          field_name: o_oth_p
+          alias: '% Other Owner-occupied housing units'
+        -
+          field_name: o_oth_mep
+          alias: '% Other-Owner-occupied housing units, margin of error'
+        -
+          field_name: r_hu_p
+          alias: '% Renter-occupied housing units'
+        -
+          field_name: r_hu_mep
+          alias: '% Renter-occupied housing units, margin of error'
+        -
+          field_name: r_sf_p
+          alias: '% Single Family Renter-occupied housing units'
+        -
+          field_name: r_sf_mep
+          alias: '% Single Family Renter-occupied housing units, margin of error'
+        -
+          field_name: r_mf_p
+          alias: '% Multi-Family Renter-occupied housing units'
+        -
+          field_name: r_mf_mep
+          alias: '% Multi-Family Renter-occupied housing units, margin of error'
+        -
+          field_name: r_oth_p
+          alias: '% Other Renter-occupied housing units'
+        -
+          field_name: r_oth_mep
+          alias: '% Other-Renter-occupied housing units, margin of error'
     -
       name: rent
       title: 'Gross Rent'

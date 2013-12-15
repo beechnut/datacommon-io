@@ -10,6 +10,7 @@ var routes     = require('./routes');
 var spatial    = require('./routes/spatial');
 var tabular    = require('./routes/tabular');
 var geographic = require('./routes/geographic');
+var report     = require('./routes/report');
 var shared     = require('./routes/shared');
 
 // var boundaries = require('./routes/boundaries');
@@ -57,11 +58,18 @@ app.post('/spatial/:dataset/intersect', spatial.intersect);
 
 app.get('/tabular/:dataset',         tabular.dataset);
 app.get('/tabular/:dataset/:fields', tabular.dataset);
+// app.get('/tabular/:dataset/:field/:keys/:percent', tabular.sum)
 
 app.get('/geographic/spatial/:s_dataset/tabular/:t_dataset/:fields', geographic.dataset);
 app.post('/geographic/spatial/:s_dataset/tabular/:t_dataset/:fields/intersect', geographic.intersect);
 app.post('/geographic/spatial/:s_dataset/tabular/:t_dataset/intersect', geographic.intersect);
 
+
+app.get('/report/check', report.check)
+app.post('/report/check', report.check)
+
+app.get('/report', report.get_category)
+app.post('/report', report.get_category)
 
 
 // TODO: Ripe for refactoring:
