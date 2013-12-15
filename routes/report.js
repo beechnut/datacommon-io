@@ -70,46 +70,64 @@ exports.get_category = function(request, response) {
     , category      = body.category
     , keys          = body.keys
     , summary_level = body.summary_level
-    , key    = shared.getKey(summary_level)
-    , select = 'SELECT'
-    , from   = 'FROM '
-    , where  = 'WHERE a.'+ key +' IN (' + body.keys.join(', ') + ')'
-    , query
+    , key           = shared.getKey(summary_level)
+    , results = {}
+    , counter = 0
+    , results = {}
+  
+  results[category.category] = ({ category: category.category, fields: [] })
 
   _.each(category.data, function (table) {
-    the_table  = shared.getTable('tabular', table.table)
-    suffix = shared.rightSuffixFromObject(the_table, summary_level)
-    from   = from + 'mapc.' + the_table.table_name + suffix + ' AS a '
+    var select = 'SELECT array_agg(s) as results FROM (SELECT'
+    , from   = 'FROM '
+    , where  = 'WHERE a.'+ key +' IN (' + body.keys.join(', ') + ')) AS s'
+    , query  = ''
+    , the_table  = shared.getTable('tabular', table.table)
+    , suffix = shared.rightSuffixFromObject(the_table, summary_level)
+    , from   = from + 'mapc.' + the_table.table_name + suffix + ' AS a '
 
+    var aliases = _.map(table.fields, function(fieldname) {
+      return shared.getAlias(table.table, fieldname)
+    })
 
     var mapped_fields = _.map(table.fields, function(field) { return 'a.' + field })
 
-    console.log(mapped_fields)
     mapped_fields = _.map(mapped_fields, function(field) { 
-      console.log(field)
       if ( field.slice(-2) === '_p' ) {
         return ' AVG('+ field +')'
       } else { return ' SUM('+ field +')' }
     })
-
-    console.log(mapped_fields)
     select = select + mapped_fields
-    response.send(select + ' <br/>' + from + ' <br/>' + where)
+
+
+    query = select + ' ' + from + ' ' + where
+
+    // console.log('The query: ' + query)
+    shared.query_database(query, function (result) {
+      
+      counter++
+      // create an array of the result values
+
+      var res = result.rows[0].results.split(',')
+      res[0] = res[0].slice(3)
+      res[res.length-1] = res[res.length-1].slice(0,-3)
+      
+
+      for(var i = 0 ; i < aliases.length ; i++) {
+        console.log(i)
+        console.log(aliases[i])
+        console.log(res[i])
+        results[category.category].fields.push( { name: aliases[i], value: res[i] } )
+      }
+      
+      console.log('counter: ' + counter)
+      console.log('datalen: ' + category.data.length)
+
+      if (counter == category.data.length) {
+        response.send(results)
+      }
+    })
   })
 
-  // query = 'SELECT array_agg(s) as results FROM (SELECT AVG(a.ctv_p), AVG(a.pubtran_p), AVG(a.bicycle_p), AVG(a.walk_p), AVG(a.other_p) FROM mapc.b08301_means_transportation_to_work_by_residence_acs_m AS a WHERE a.muni_id IN (19, 21)) AS s'
-  // console.log('THE QUERY: ' + query)
-
-  // shared.query_database(query, function (result) {
-    
-  //   // create an array of the result values
-  //   var res = result.rows[0].results.split(',')
-  //   res[0] = res[0].slice(3)
-  //   res[res.length-1] = res[res.length-1].slice(0,-3)
-
-  //   // objects to contain: value, alias, 
-
-  //   response.send(res)
-  // })
 
 }

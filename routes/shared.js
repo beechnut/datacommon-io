@@ -103,15 +103,31 @@ exports.getKey = function (summary_level) {
   }
 }
 
+
+exports.getAlias = function (table, fieldname) {
+  
+  var match
+  if (typeof table === 'string') { 
+    table = exports.getTable('tabular', table) }
+  
+
+  _.each(table.attributes, function(field) {
+    if (field.field_name === fieldname) {
+      // console.log('match: ' + field.alias)
+      match = field.alias }
+  })
+
+  return match
+}
+
+
 exports.rightSuffixFromObject = function (table, summary_level) {
-  if (typeof table === 'string') { exports.getTable('tabular', table) }
+  if (typeof table === 'string') { table = exports.getTable('tabular', table) }
   
   var match
 
   _.each(table.summary_levels, function (level) {
-    console.log(level.name + ' == ' + summary_level)
     if (level.name === summary_level) { 
-      console.log('match')
       match = exports.rightSuffix( level.suffix ) }
   })
   return match
@@ -122,7 +138,7 @@ exports.rightSuffixFromObject = function (table, summary_level) {
 exports.find = function (needle, haystack, value){
   for(t=0; t < haystack.length; t++){
     if(eval('haystack[t][value]') === needle){
-      console.log(haystack[t], needle)
+      // console.log(haystack[t], needle)
       return(haystack[t]);
     } 
   }
