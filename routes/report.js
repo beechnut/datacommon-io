@@ -59,6 +59,8 @@ exports.check = function (request, response) {
 
 
 exports.get_field = function(request, response) {
+  console.log(request.body)
+  
 
 }
 
@@ -74,7 +76,6 @@ exports.get_category = function(request, response) {
     , key           = shared.getKey(summary_level)
     , results = {}
     , counter = 0
-    , results = {}
   
   results[category.category] = ({ category: category.category, fields: [] })
 
