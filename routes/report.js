@@ -33,28 +33,28 @@ exports.check = function (request, response) {
 }
 
 
-var sumlev = "municipality"
+// var sumlev = "municipality"
 
-var category = { category: 'transportation',
-    data: [
-    {
-      table: 'means_transportation_to_work_by_residence', 
-      fields: ['ctv_p', 'pubtran_p', 'bicycle_p', 'walk_p', 'other_p'] },
-    {
-      table: 'travel_time_to_work', 
-      fields: ['mlt15_p', 'm15_30_p', 'm30_45_p', 'm45_60_p', 'm60ovr_p'] },
-    {
-      table: 'vehicles_per_household', 
-      fields: ['c0_p', 'c1_p', 'c2_p', 'c3p_p'] }
-    ]}
+// var category = { category: 'transportation',
+//     data: [
+//     {
+//       table: 'means_transportation_to_work_by_residence', 
+//       fields: ['ctv_p', 'pubtran_p', 'bicycle_p', 'walk_p', 'other_p'] },
+//     {
+//       table: 'travel_time_to_work', 
+//       fields: ['mlt15_p', 'm15_30_p', 'm30_45_p', 'm45_60_p', 'm60ovr_p'] },
+//     {
+//       table: 'vehicles_per_household', 
+//       fields: ['c0_p', 'c1_p', 'c2_p', 'c3p_p'] }
+//     ]}
 
-keys = [19, 21]
+// keys = [19]
 
-var mock_body = {
-    category:      category
-  , summary_level: sumlev
-  , keys:          keys
-}
+// var mock_body = {
+//     category:      category
+//   , summary_level: sumlev
+//   , keys:          keys
+// }
 
 
 
@@ -65,8 +65,9 @@ exports.get_field = function(request, response) {
 
 exports.get_category = function(request, response) {
   console.log(request.method)
+  console.log(request.body)
 
-  var body          = mock_body // request.body
+  var body          = request.body
     , category      = body.category
     , keys          = body.keys
     , summary_level = body.summary_level
@@ -117,7 +118,7 @@ exports.get_category = function(request, response) {
         console.log(i)
         console.log(aliases[i])
         console.log(res[i])
-        results[category.category].fields.push( { name: aliases[i], value: res[i] } )
+        results[category.category].fields.push( { title: aliases[i], value: res[i] } )
       }
       
       console.log('counter: ' + counter)
