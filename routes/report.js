@@ -33,34 +33,68 @@ exports.check = function (request, response) {
 }
 
 
-// var sumlev = "municipality"
-
-// var category = { category: 'transportation',
-//     data: [
-//     {
-//       table: 'means_transportation_to_work_by_residence', 
-//       fields: ['ctv_p', 'pubtran_p', 'bicycle_p', 'walk_p', 'other_p'] },
-//     {
-//       table: 'travel_time_to_work', 
-//       fields: ['mlt15_p', 'm15_30_p', 'm30_45_p', 'm45_60_p', 'm60ovr_p'] },
-//     {
-//       table: 'vehicles_per_household', 
-//       fields: ['c0_p', 'c1_p', 'c2_p', 'c3p_p'] }
-//     ]}
-
-// keys = [19]
-
-// var mock_body = {
-//     category:      category
-//   , summary_level: sumlev
-//   , keys:          keys
-// }
+var mock_summary_level = "municipality"
+  , mock_keys = [19, 21]
+  , mock_body = {
+      table: 'means_transportation_to_work_by_residence'
+    , field: 'ctv_p'
+    , summary_level: mock_summary_level
+    , keys: mock_keys
+}
 
 
 
 exports.get_field = function(request, response) {
-  console.log(request.body)
-  
+  console.log(mock_body)
+  // console.log(request.body)
+
+  /* input should be: 
+    data:
+      table: 'api-called-table-name'
+      field: 'field-name-value'
+      summary_level: 'census_blockgroup'
+      keys: [array, of, ids]
+  */
+
+  var body          = request.body
+    , table         = body.table
+    , field         = body.field
+    , keys          = body.keys
+    , summary_level = body.summary_level
+    , key           = shared.getKey(summary_level)
+    , result        = {}
+    , alias         = shared.getAlias(table, field)
+
+  if ( field.slice(-2) === '_p' ) {
+    adj_field = 'AVG('+ field +')'
+  } else { 
+    adj_field = 'SUM('+ field +')'
+  }
+
+  // console.log('field')
+  // console.log(field)
+
+  var select = 'SELECT ' + adj_field + ' AS the_field'
+    , from   = 'FROM '
+    , where  = 'WHERE '+ key +' IN (' + body.keys.join(', ') + ')'
+    , query  = ''
+    , the_table  = shared.getTable('tabular', table)
+    , suffix = shared.rightSuffixFromObject(the_table, summary_level)
+    , from   = from + 'mapc.' + the_table.table_name + suffix
+
+  query = select + ' ' + from + ' ' + where
+
+  // console.log('query')
+  // console.log(query)
+
+  // console.log('The query: ' + query)
+  shared.query_database(query, function (result) {
+    // console.log('field:' + field)
+    // console.log('result val')
+    var result_val = result.rows[0].the_field
+    // console.log(result_val)
+    response.send( { title: alias, value: result_val } )
+  })
 
 }
 

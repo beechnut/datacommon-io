@@ -65,6 +65,8 @@ app.post('/geographic/spatial/:s_dataset/tabular/:t_dataset/:fields/intersect', 
 app.post('/geographic/spatial/:s_dataset/tabular/:t_dataset/intersect', geographic.intersect);
 
 app.post('/report', report.get_category)
+
+app.get('/report/field', report.get_field)
 app.post('/report/field', report.get_field)
 
 
