@@ -41,7 +41,7 @@ var makeIntersectQuery = function(s_schema_name, t_schema_name, s_table, t_table
             +     "ST_SetSRID("
             +       "ST_GeomFromGeoJSON('"+ JSON.stringify(geojson, shared.floatOnOkay) +"')"
             +       ", 4326)"
-            +   ", ST_Transform(ST_Simplify(g.the_geom, 50), 4326))) AS subquery"
+            +   ", ST_Transform(ST_Simplify(g.the_geom, 1000), 4326))) AS subquery"
             + " WHERE geojson <> '{\"type\":\"GeometryCollection\",\"geometries\":[]}';"
 
   console.log(query);

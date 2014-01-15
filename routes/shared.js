@@ -154,6 +154,40 @@ exports.getTable = function(category, dataset_name) {
 
 
 
+// RESTy PATHS
+
+exports.topics = function (req, res) {
+  var topics = []
+  _.forEach( tablesFor('tabular'), function (table) {
+    title = table['category']
+    value = title.toLowerCase()
+    topics.push({ data:
+                    { title: title
+                    , value: value }
+                 , href: '/topics/' + value })
+  })
+  res.send( _.unique(topics))
+}
+
+
+exports.tables = function (req, res) {
+  var tables = []
+  _.forEach( tablesFor('tabular'), function (table) {
+    var topic = req.params.topic.toLowerCase()
+    if ( table['category'].toLowerCase() === topic ) {
+      tables.push({
+          data:
+            { title: table['title']
+            , value: table['name'] }
+        , href: "/tables/" + table['name']
+      })
+    }
+  })
+  res.send( tables )
+}
+
+
+
 
 exports.meta = function(request, response) {
   category = request.params.category;

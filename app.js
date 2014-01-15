@@ -44,6 +44,12 @@ app.all('*', function(req, res, next) {
 
 app.get('/', routes.index);
 
+app.get('/topics', shared.topics);  //=> List of topics
+app.get('/topics/:topic/tables', shared.tables);  //=> List of tables for a topic
+app.get('/tables/:table/fields');  //=> List of fields in a table
+app.get('/tables/:table/geographies');  //=> List geographies for a tables
+
+
 app.get('/:category/list',          shared.list);
 app.get('/:category/list/verbose',  shared.verbose);
 app.get('/:category/:dataset/meta', shared.meta)
@@ -66,7 +72,7 @@ app.post('/geographic/spatial/:s_dataset/tabular/:t_dataset/intersect', geograph
 
 app.post('/report', report.get_category)
 
-app.get('/report/field', report.get_field)
+app.get('/report/field',  report.get_field)
 app.post('/report/field', report.get_field)
 
 

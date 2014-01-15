@@ -15,7 +15,7 @@ var util = require('util');
 
 var makeGeoJSONQueryString = function(schema_name, table, callback) { 
   query = 'SELECT ' + table.key + ' AS key, ST_AsGeoJSON('
-  query = query + 'ST_Transform(ST_Simplify(the_geom, 50), 4326)) AS geojson FROM '
+  query = query + 'ST_Transform(ST_Simplify(the_geom, 1000), 4326)) AS geojson FROM '
   query = query + schema_name + '.' + table.table_name + ";";
   console.log(query);
   if(callback) callback(query);
