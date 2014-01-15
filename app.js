@@ -45,9 +45,10 @@ app.all('*', function(req, res, next) {
 app.get('/', routes.index);
 
 app.get('/topics', shared.topics);  //=> List of topics
-app.get('/topics/:topic/tables', shared.tables);  //=> List of tables for a topic
-app.get('/tables/:table/fields');  //=> List of fields in a table
-app.get('/tables/:table/geographies');  //=> List geographies for a tables
+app.get('/topics/:topic', shared.tables);  //=> List of tables for a topic
+app.get('/tables/:table', shared.table);
+app.get('/tables/:table/fields', shared.fields);  //=> List of fields in a table
+app.get('/tables/:table/geographies', shared.geographies);  //=> List geographies for a tables
 
 
 app.get('/:category/list',          shared.list);

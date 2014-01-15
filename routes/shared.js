@@ -186,6 +186,29 @@ exports.tables = function (req, res) {
   res.send( tables )
 }
 
+exports.table = function (req, res) {
+  res.send( table_by_name( req.params.table ) )
+}
+
+exports.fields = function (req, res) {
+  res.send( table_by_name( req.params.table, 'attributes' ) )
+}
+
+exports.geographies = function (req, res) {
+  res.send( table_by_name( req.params.table, 'summary_levels' ) )
+}
+
+
+var table_by_name = function (table_name, property) {
+  table_name = table_name.toLowerCase()
+  table = exports.find(table_name, tablesFor('tabular'), 'name') 
+  if (property != undefined) {
+    return table[property]
+  } else {
+    return table
+  }
+}
+
 
 
 
